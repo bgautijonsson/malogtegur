@@ -1,0 +1,361 @@
+# Slembibreytur á líkindarúmum 
+
+Mælanlegt fall á líkindarúmi er yfirleitt kallað **hending**, **slembibreyta** eða **slembistærð**.
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F, P)$ vera líkindarúm, $X: \Omega \rightarrow \mathbb R$ vera slæmbistærð og látum skv. venju $\mathcal B$ tákna Borel-algebruna á $\mathbb R$. Þá er mengjasafnið 
+
+$$
+X^{-1}(\mathcal B) := \{f^{-1}(E) | E \in \mathcal B\}
+$$
+
+$\sigma$-algebra á $\Omega$ og við segjum að slembistærðin X **framleiði** hana. Hún verður oftast táknuð $\mathcal F_X$.
+
+## Setning
+
+Látum $X$ vera slembistærð á líkindarúmi $(\Omega, \mathcal F, P)$. Þá er fallið
+
+$$
+P_X: \mathcal B \rightarrow [0, \infty], \quad B\rightarrow P(X^{-1}(B))
+$$
+
+líkindamál á $(\mathbb R, \mathcal B)$.
+
+Við segjum að líkindamálið $P_X$ sé **líkindadreifingin** sem slembistærðin $X$ ákvarðar.
+
+## Skilgreining
+
+Við segjum að tvær slembistærðir á líkindarúmi $(\Omega, \mathcal F, P)$ séu **óháðar** ef $\sigma$-algebrurnar sem þær framleiða eru óháðar, m.ö.o, ef um öll Borel-mengi B og C í $\mathbb R$ gildir
+
+$$
+P(X^{-1}(B)\cap Y^{-1}(C)) = P(X^{-1}(B))\cdot P(Y^{-1}(C))
+$$
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm. Fall $f:\Omega\rightarrow [0,\infty)$ er sagt **einfalt** ef það er mælanlegt og tekur aðeins endanlega mörg gildi.
+
+Sérhvert fall $t$ á $(\Omega, \mathcal F)$ er hægt að setja fram sem
+
+$$
+t = \sum_{i=1}^n a_i\mathbf{1}_{A_i}
+$$
+
+þar sem $A_i\in\mathcal F$ fyrir öll $i$. Slík framsetning er kölluð **staðlaða framsetningin** á $t$ ef $a_i\neq a_j$ fyrir $i\neq j$ og $t^{-1}(a_i)=A_i$.
+
+## Skilgreining
+
+Látum $t = \sum_{i=1}^n a_i \mathbf 1_{A_i}$ vera staðlaða framsetningu einfalds falls $t$ á málrúmi $(\Omega, \mathcal F, \mu)$ og $E \in \mathcal F$. Þá kallast
+
+$$
+\int_E td\mu := \sum_{i=1}^n a_i \mu(A_i\cap E)
+$$
+
+**heildi** fallsins $t$ yfir mengið $E$ m.t.t. málsins $\mu$.
+
+## Æfing
+
+Línulegar samantektir af einföldum föllum eru einföld föll.
+
+***
+
+## Setning
+
+Látum $s$ og $t$ vera einföld föll á málrúmi $(\Omega, \mathcal F, \mu)$ og $c \in [0, \infty)$. Þá gildir um öll $E \in \mathcal F$:
+
+*(i)*  $\int_E cs  d\mu = c\int_Es  d\mu$.
+
+*(ii)* $\int_E (s + t)  d\mu = \int_E s d\mu + \int_E t  d\mu$.
+
+*(iii)* Ef $s(x) \leq t(x)$ fyrir öll x úr $\Omega$, þá er
+
+$$
+\int_E s d\mu \leq \int_E t d\mu
+$$
+
+
+
+## Setning
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm og $f: \Omega \rightarrow [0, \infty]$ vera mælanlegt fall. Þá er til runa $(s_n)_{n\geq1}$ af einföldum föllum á $\Omega$ sem fullnægir eftirfarandi skilyrðum.
+
+*(i)* $0 \leq s_1 \leq s_2 \leq \dots \leq f.$
+
+*(ii)* $\lim_{n\rightarrow\infty}s_n(x) = f(x)$ fyrir öll $x \in \Omega$.
+
+## Setning
+
+Látum $t\geq 0$ vera einfalt fall á málrúmi $(\Omega, \mathcal F, \mu)$ og skilgreinum fall $\lambda: \mathcal F \rightarrow [0, \infty]$ með því að setja
+
+$$
+\lambda(E) := \int_E t  d\mu.
+$$
+
+Þá er $\lambda$ mál á $\mathcal F$.
+
+
+# Heildun jákvæðra falla 
+## Skilgreining 
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm, $f: \Omega \rightarrow [0, \infty]$ vera mælanlegt fall, $E\in \mathcal F$ og $Y(E,f)$ vera mengi allra talna af gerðinni $\int_E t d\mu$ þar sem $t$ er einfalt fall á málrúminu, sem uppfyllir $0 \leq t(x) \leq f(x)$ fyrir öll $x$ úr $\Omega$. Þá kallast
+
+$$
+\int_E f d\mu := \sup Y(E,f)
+$$
+
+**Lebesgue-heildi** fallsins $f$ yfir mengið $E$ m.t.t. málsins $\mu$.
+
+***
+
+## Setning
+
+Látum $f$ og $g$ vera mælanleg föll á málrúmi $(\Omega, \mathcal F, \mu)$, sem uppfylla $0 \leq f \leq g$, og $E \subseteq F$ vera mælanleg mengi. Þá gildir:
+
+1. $\int_E f d\mu \leq \int_E g d\mu$
+
+2. $\int_E f d\mu = \int_\Omega f \cdot \mathbf 1_E d\mu$
+
+3. $\int_E f d\mu \leq \int_F f d\mu$
+
+4. $\int_E cf d\mu = c\int_E f d\mu, \quad \forall c \in \mathbb R_+$
+
+5. Fallið $f$ er núll næstum alls staðar þá og því aðeins að $\int_\Omega f d\mu = 0$
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning [Um einhalla samleitni] (Lebesgue)
+
+Látum $(f_n)_{n\geq1}$ vera vaxandi runu af mælanlegum föllum á málrúmi $(\Omega, \mathcal F, \mu)$, sem taka gildi sín í $[0, \infty]$, og gerum ráð fyrir að runan stefni á fall $f: \Omega \rightarrow [0, \infty]$. Með öðrum orðum eru eftirfarandi skilyrði uppfylt:
+
+1. $0\leq f_1(x) \leq f_2(x) \leq \dots \leq \infty$ fyrir öll $x$ úr $\Omega$.
+
+2. $\lim_{n\rightarrow\infty}f_n(x) = f(x)$ fyrir öll $x$ úr $\Omega$.
+
+Þá er $f$ mælanlegt fall og
+
+$$
+\lim_{n\rightarrow\infty}\int_\Omega f_nd\mu = \int_\Omega f d\mu
+$$
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $f,g:\Omega\rightarrow [0,\infty]$ vera mælanleg föll. Þá gildir
+
+$$
+\int_{\Omega}(f + g)d\mu = \int_{\Omega}fd\mu + \int_\Omega gd\mu
+$$
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning [Fatou]
+
+Látum $(f_n)_{n\geq1}$ vera runu af mælanlegum föllum á málrúmi $(\Omega, \mathcal F, \mu)$ sem taka gildi sín í $[0, \infty]$. Þá gildir
+
+$$
+\int_\Omega(\liminf_{n\rightarrow\infty}f_n)d\mu \leq \liminf_{n\rightarrow\infty}\int_\Omega f_n d\mu
+$$
+
+***
+
+**Sönnun.** Gerum ráð fyrir að $0 \leq g \leq f$, þar sem $g$ er takmarkað fall með stoð á mengi $E$ með endanlegt mál. Ef við setjum $g_n(x) = \min(g(x),f_n(x))$, þá er $g_n$ mælanlegt á E og $g_n(x) \rightarrow g(x)$ næstum alls staðar, svo að
+
+$$
+\int g_n \rightarrow \int g.
+$$
+
+Samkvæmt skilgreiningu höfum við líka $g_n \leq f_n$, svo að $\int g_n \leq \int f_n$, og þar af leiðir
+
+$$
+\int g \leq \liminf_{n\rightarrow \infty}\int f_n.
+$$
+
+Með því að taka supremum yfir öll slík $g$ er ójafnan sönnuð.
+
+***
+
+## Setning 
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm, $f:\Omega\rightarrow[0, \infty]$ vera mælanlegt fall og skilgreinum fall
+
+$$
+\lambda:\mathcal F \rightarrow [0,\infty], \quad E\rightarrow \int_E fd\mu
+$$
+
+1. Fallið $\lambda$ er mál á $\mathcal F$.
+
+2. Ef $\mu(E) = 0$, þá er $\lambda(E) = 0$.
+
+Mál $\lambda$ á $(\Omega, \mathcal F, \mu)$, sem fullnægir skilyrði *(ii)*, er sagt vera **alsamfellt** með tilliti til $\mu$.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning 
+
+Látum $(f_n)_{n\geq1}$ vera vaxandi runu af föllum frá málrúmi $(\Omega, \mathcal F, \mu)$ inn í $[0, \infty]$, sem stefnir n.a. á mælanlegt fall $f$. Þá gildir
+
+$$
+\int_\Omega fd\mu = \lim_{n\rightarrow\infty}\int_\Omega f_n d\mu
+$$
+
+
+***
+
+**Sönnun.**
+
+***
+
+# Vikublað 6 {-}
+
+## Dæmi 1 {-}
+
+Látum $(\Omega, \mathcal G, \mu_c)$ vera fullkomnun málrúmsins $(\Omega, \mathcal F, \mu)$. Látum $\mathcal G'$ vera $\sigma$-algebru á $\Omega$ og $\mu': \mathcal G' \rightarrow [0,\infty]$ vera mál, sem uppfyllir eftirfarandi skilyrði:
+
+* Málrúmið $(\Omega, \mathcal G', \mu')$ er fullkomið.
+
+* $\mathcal F \subseteq \mathcal G'$ og $\mu'(E) = \mu(E)$ fyrir öll E úr $\mathcal F$.
+
+Sýnið að $\sigma$-algebran $\mathcal G$ sé innihaldin í $\mathcal G'$ og $\mu'(E) = \mu_c(E)$ fyrir öll E úr $\mathcal G$.
+
+***
+
+**Lausn.**
+
+
+## Dæmi 2 {-}
+
+Látum $\mathcal F$ vera $\sigma$-algebru á $\mathbb R^d$, sem fullnægir eftirtöldum tveimur skilyrðum:
+
+* Öll opin mengi í $\mathbb R^d$ eru í $\mathcal F$.
+
+* Einskorðun Lebesgue-utanmálsins $m^*$ við $\mathcal F$ er mál.
+
+Sýnið að öll mengin í $\mathcal F$ séu Lebesgue-mælanleg.
+
+***
+
+**Lausn.**
+
+## Dæmi 3 {-}
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $A\in \mathcal F$. Setjum
+
+$$
+\mathcal F_A := \{A\cap E | E\in\mathcal F\}
+$$
+
+og látum $\mu_A: \mathcal F_A \rightarrow [0,\infty]$ vera einskorðun málsins $\mu$.
+
+*(a)* Er $\mathcal F_A$ $\sigma$-algebra á $\Omega$?
+
+Ef $A \neq \Omega$ þá er $\Omega \notin \mathcal F_A$ og þá er $\mathcal F_A$ ekki $\sigma$-algebra á $\Omega$.
+
+*(b)* Er $\mathcal F_A$ $\sigma$-algebra á A?
+
+Augljóslega.
+
+*(c)* Er $\mu_A$ mál á $(A, \mathcal F_A)$?
+
+$\mu_A(\emptyset) = \mu(\emptyset) = 0$. Ef $B_m)_{m\in\mathbb N}$ er runa af innbyrðis sundurlægum mengjum úr $\mathcal F_A$ þá gildir að $\mu_A(\cup B_n) = \mu(\cup B_n) = \sum \mu = \sum \mu_A$
+
+*(d)* Er fallið $v:\mathcal F \rightarrow [0,\infty]$, $E\rightarrow \mu(E\cap A)$ mál á $(\Omega, \mathcal F)$?
+
+v(ö) = mu(0 sam A) = 0
+
+En rruna af innb sund meng í F, þá
+
+v(UEn)=mu(A snið UEn) = mu(sam (A snið En)) = sum mu(A snið E) = sum v(En)
+
+JÁ!
+
+## Dæmi 4 {-}
+
+Látum A og B vera tvo óháða atburði í líkindarúmi $(\Omega,\mathcal F, P)$. Sýnið að $\sigma$-algebran sem $\{A\}$ framleiðir og $\sigma$-algebran sem $\{B\}$ framleiðir séu óháðar.
+
+***
+
+**Lausn.**
+
+## Dæmi 5 {-}
+
+Finnið dæmi um fall $f$ á mælanlegu rúmi, sem er ekki mælanlegt, en hefur þann eiginleika ða föllin $|f|$ og $f^2$ eru bæði mælanleg.
+
+***
+
+**Lausn.**
+
+## Dæmi 6 {-}
+
+Látum $h$ vera samfellt raungilt fall á bili I í $\mathbb R$ og $f$ vera mælanlegt fall á mælanlegu rúmi $(\Omega, \mathcal F)$, sem varpar $\Omega$ inn í bilið I.
+
+*(a)* Sýnið að samskeytingin $h\circ f: \Omega \rightarrow \mathbb R$ sé mælanlegt fall.
+
+*(b)* Sýnið að um sérhvert mælanlegt fall $f$ á tilteknu málrúmi gildi að föllin $\log (|f|)$ og $|f|^r$ séu mælanleg fyrir öll $r > 0$.
+
+***
+
+**Lausn.**
+
+## Dæmi 7 {-}
+
+Látum $f$ vera mælanlegt fall á mælanlegu rúmi $(\Omega, \mathcal F)$ og $C > 0$. Sýnið að *afskorna* fallið $f_C$, sem skilgreint er með
+
+$$
+\begin{aligned}
+f_C(x) := 
+\begin{cases} 
+f(x) &\text{ef} \quad |f(x)| \leq C \\
+C &\text{ef} \quad f(x) > C \\
+-C &\text{ef} \quad f(x) < C,
+\end{cases}
+\end{aligned}
+$$
+
+sé mælanlegt.
+
+**Skilgreining.** *Tvinngilt* fall á málrúmi er sagt **mælanlegt** ef bæði raunhluti þess og þverhluti eru mælanleg föll.
+
+***
+
+**Lausn.**
+
+## Dæmi 8 {-}
+
+*(a)* Látum $f$ og $g$ vera mælanleg tvinngild föll á tilteknu mælanlegu rúmi. Sýnið að föllin $f + g$ og $fg$ séu mælanleg.
+
+*(b)* Látum $(f_n)_{n\geq1}$ vera samleitna runu af mælanlegum tvinngildum föllum á tilteknu málrúmi. Sýnið að markgildi rununnar sé mælanlegt fall.
+
+***
+
+**Lausn.**
+
+## Dæmi 9 {-}
+
+Sýnið að tvinngilt fall $f$ á málrúmi sé mælanlegt þá og því aðeins að um öll opin mengi $U$ í $\mathbb C$ gildi að mengið $f^{-1}(U)$ sé mælanlegt mengi.
+
+***
+
+**Lausn.**
+
+
+
+
+

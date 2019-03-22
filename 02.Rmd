@@ -1,0 +1,293 @@
+# Jordan-mælanleg mengi
+
+* Látum $a$ og $b$ vera rauntölur sem uppfylla $a\leq b$ og I vera bil (opið, hálfopið eða lokað) með endapunkta $a$ og $b$. Þá setjum við $|I| := b - a$ og köllum **lengd** bilsins I.
+
+* Faldmengi $d$ bila, $B := I_1 \times \dots \times I_d$ kallast **kassi í** $\mathbb R^d$ eða $d-$**kassi**. Töluna
+
+$$
+|B| := |I_1| \dots |I_d|
+$$
+
+köllum við $d-$**rúmmál** kassans B.
+
+* Sammengi endanlega margra $d-$kassa köllum við **kassastæðu** (í $\mathbb R^d$).
+
+***
+
+
+## Setning
+
+Látum E og F vera kassastæður í $\mathbb R^d$. Þá eru mengin $E\cup F$, $E\cap F$, $E\backslash F$ og $E\Delta F$ einnig kassastæður. Ennfremur er sérhvert mengi af gerðinni $E + v$ kassastæða.
+
+## Setning 3.1.2 {-}
+
+Sérhver kassastæða í $\mathbb R^d$ er sammengi endanlega margra innbyrðis sundurlægra $d-$kassa.
+
+***
+
+## Setning
+
+Látum $B_1, \dots, B_k$  vera innbyrðis sundurlæga $d-$kassa og $C_1, \dots C_l$ vera innbyrðis sundurlæka $d-$kassa og gerum ráð fyrir að $B_1 \cup \dots \cup B_k = C_1 \cup \dots \cup C_l$. Þá gildir
+
+$$
+|B_1| + \dots + |B_k| = |C_1| + \dots + |C_l|
+$$
+
+***
+
+## Skilgreining
+
+Látum E vera kassastæðu í $\mathbb R^d$. Þá er unnt að skrifa $E = B_1 \cup \dots \cup B_k$ þar sem $B_1, \dots, B_k$ eru innbyrðis sundurlægir $d-$kassar. Samkvæmt *setningu 3.1.3* er talan
+
+$$
+m(E) := |B_1| + \dots + |B_k|
+$$
+
+óháð valinu á innbyrðis sundurlægu kössunum og við köllum hana $d-$**rúmmál** kassastæðunnar $E$.
+
+***
+
+### Athugasemdir 
+
+* Fyrir sérhverja kassasstæðu E gildir að $m(E) \geq 0$
+
+* Tómamengið er kassastæða og $m(\emptyset) = 0$
+
+***
+
+## Setning
+
+Látum E og F vera kassastæður í $\mathbb R^d$ og $v \in \mathbb R^d$. Þá gildir
+
+*(i)* $m(E\cup F) \leq m(E) + m(F)$ og jafnaðarmerkið gildir ef $E\cap F = \emptyset$.
+
+*(ii)* $m(E + v) = m(E)$.
+
+***
+
+## Skilgreining
+
+Látum X vera takmarkað hlutmengi í $\mathbb R^d$.
+
+*(i)* Látum $Jm_*(X)$ tákna efra mark mengis allra talnna af gerðinni $m(E)$, þar sem E er kassastæða sem er innihaldin í X. Þessa tölu köllum við **Jordan-innanmál** mengisins X.
+
+*(ii)* Látum $Jm^*(X)$ tákna neðra mark mengis allra talna af gerðinni $m(E)$, þar sem E er kassastæða sem inniheldur X. Þessa tölu köllum við **Jordan-utanmál** mengisins X.
+
+*(iii)* Við segjum að X sé **Jordan-mælanlegt** ef $Jm^*(X) = Jm_*(X)$. Ef svo er þá setjum við $m(X) := Jm^*(X) = Jm_*(X)$ og segjum að $m(X)$ sé **Jordan-mál** mengisins X.
+
+***
+
+## Setning
+
+Látum E og F vera Jordan-mælanleg hlutmengi í $\mathbb R^d$. Þá gildir:
+
+*(i)* Mengin $E\cup F$, $E\cap F$, $E\backslash F$ og $E\Delta F$ eru Jordan-mælanleg.
+
+*(ii)* $m(E) \geq 0$.
+
+*(iii)* Ef $E\cap F = \emptyset$, þá $m(E\cup F) = m(E) + m(F)$
+
+*(iv)* Ef $E \subset F$, þá $m(E) \leq m(F)$
+
+*(v)* $m(E\cup F) \leq m(E) + m(F)$
+
+*(vi)* Fyrir sérhvert $v$ úr $\mathbb R^d$ gildir að $E + v$ er Jordan-mælanlegt og $m(E + v) = m(E)$
+
+***
+
+## Setning 
+
+Takmarkað hlutmengi E í $\mathbb R^d$ er Jordan-mælanlegt ef og aðeins ef jaðar þess, $\partial E$, hefur Jordan-utanmál núll.
+
+***
+
+### Athugasemd
+
+Opin mengi í $\mathbb R^d$ eru ekki öll Jordan-mælanleg. *(Sjá dæmi 4 á vikublaði 3).
+
+***
+
+# Tröppuföll og heildi þeirra
+
+Látum R vera kassa í $\mathbb R^d$. Safn af $d-$kössum $B_1, \dots, B_k$, sem eru innbyrðis sundurlægir og uppfylla $R = B_1 \cup \dots \cup B_k$, köllum **skiptingu** á R og segjum þá að $B_1, \dots, B_k$ séu **kassar skiptingarinnar**. Skipting $C_1, \dots, C_l$ á kassa R er sögn **fínni en** skipting $B_1, \dots, B_k$ á R ef fyrir sérhvert $j$ er til $i$ þannig að $C_j \subseteq B_i$.
+
+***
+
+## Setning
+
+Fyrir sérhverjar tvær skiptingar á kassa R er til skipting sem er fínni en þær báðar.
+
+***
+
+Látum R vera kassa í $\mathbb R^d$. Við segjum að fall $t: R \rightarrow \mathbb R$ sé **tröppufall** ef til er skipting $R = B_1 \cup \dots \cup B_k$ sem hefur þann eiginleika að einskorðun $t$ við $B_j$ er fastafall fyrir sérhvert $j$. Þá er sagt að $t$ sé **tröppufall með tilliti til skiptingarinnar**.
+
+***
+
+## Setning
+
+Látum $t$ vera tröppufall með tilliti til skiptinga $R = A_1 \cup \dots \cup A_l$ og $R = B_1 \cup \dots \cup B_k$. Látum $a_i$ tákna (eina) gildið sem fallið $t$ tekur í $A_i$ og $b_j$ tákna (eina) gildið sem fallið $t$ tekur í $B_j$. Þá gildir
+
+$$
+\sum_{i=1}^l a_i|A_i| = \sum_{j=1}^k b_j|B_j|
+$$
+
+***
+
+## Setning
+
+Látum $t$ vera tröppufall á kassa R með tilliti til skiptingar $R = B_1 \cup \dots \cup B_k$ og látum $b_j$ tákna (eina) gildið sem fallið $t$ tekur í $B_j$. Þá segjum við að 
+
+$$
+\int_R t := \sum_{j=1}^k b_j|B_j|
+$$
+
+sé **heildi fallsins** $t$ **yfir** $R$
+
+***
+
+# Riemann-heildi (Darboux-útgáfan)
+
+
+Látum R vera d-kassa og $f: R \rightarrow \mathbb R$ vera fall. Látum $\mathcal S$ vera mengi allra rauntalna af gerðinni $\int_R s$, þar sem $s$ er tröppufall á R, sem uppfyllir $s(x) \leq f(x)$ fyrir öll $x$ úr R og látum $\mathcal T$ vera mengi allra rauntalna af gerðinni $\int_R t$, þar sem $t$ er tröppufall á R, sem uppfyllir $f(x) \leq t(x)$ fyrir öll $x$ úr R.
+
+Setjum svo
+
+$$
+\underline{\int_R f}:= \sup \mathcal S \quad \text{og} \quad \overline{\int_R f} := \inf\mathcal T.
+$$
+
+Við köllum fyrri töluna **undirheildi** fallsins $f$ á R og seinni töluna **yfirheildi** fallsins $f$ á R.
+
+***
+
+## Skilgreining
+
+Látum R vera d-kassa. Við segjum að fall $f: R \rightarrow \mathbb R$ sé **Riemann-heildanlegt** ef það er takmarkað og
+
+$$
+\underline{\int_R f} = \overline{\int_R f}.
+$$
+
+Við segjum þá að talan
+
+$$
+\int_R f := \underline{\int_R f} = \overline{\int_R f}
+$$
+
+sé **heildi** fallsins $f$ yfir R.
+
+***
+
+## Skilgreining
+
+Látum C vera takmarkað hlutmengi í $\mathbb R^d$ og R vera $d-$kassa sem inniheldur C. Við segjum að fall $f: C\rightarrow\mathbb R$ sé **Riemann-heildanlegt** ef fallið $\tilde f:R\rightarrow\mathbb R$ sem skilgreint er með $\tilde f(x) = f(x)$ fyrir $x \in C$ og $\tilde f(x) = 0$ fyrir $x \in R \backslash C$, er Riemann-heildanlegt. Við segjum þá að talan
+
+$$
+\int_C f := \int_R \tilde f
+$$
+
+sé **heildi** fallsins $f$ yfir $C$.
+
+***
+
+## Setning
+
+Látum C vera takmarkað hlutmengi í $\mathbb R^d$ og $f$ og $g$ vera Riemann-heildanleg föll á C, sem uppfylla $f(x) \leq g(x)$ fyrir öll $x$ úr C. Þá gildir að
+
+$$
+\int_C f \leq \int_C g.
+$$
+
+***
+
+## Setning
+
+Samfellt og takmarkað fall á Jordan-mælanlegu mengi er Riemann-heildanlegt.
+
+***
+
+# Vikublað 2 {-}
+
+## Dæmi 1 {-}
+
+Látum $a$ og $b$ vera rauntölur sem uppfylla $a \leq b$ og $I$ vera bil (opið, hálfopið eða lokað) með endapunkta $a$ og $b$. Þá setjum við $|I| := b - a$ og köllum **lengd** bilsins $I$.
+
+Fjöldatölu mengis $A$ táknum við $\#A$ eða $\#(A)$.
+
+Fyrir sérhverja náttúrulega tölu $N > 0$ setjum við $\frac1N\mathbb Z := \{\frac kN | k \in \mathbb Z\}$.
+
+Sýnið að um sérhvert bil $I$ gildi
+
+$$
+|I| = \lim_{N\rightarrow\infty}\frac1N\#\left(I\cap\frac1N\mathbb Z \right).
+$$
+
+***
+
+## Dæmi 2 {-}
+
+Látum $a$ og $b$ vera rauntölur og $I_1, \dots I_k$ vera bil, sem þekja $[a, b]$ (þ.e.a.s $[a,b] \subseteq I_1\cup \dots\cup I_k$). Sannið eftirfarandi fullyrðingar.
+
+*(a)* $b - a \leq \sum_{j=1}^k|I_j|.$
+
+*(b)* Ef $[a, b] = I_1\cup\dots\cup I_k$ og $\#(I_j\cap I_k) \leq 1$ furir $j\neq k$, þá gildir jafnaðarmerkið í ójöfnunni í lið *(a)*.
+
+***
+
+## Dæmi 3 {-}
+
+Látum $(I_n)_{n\geq1}$ vera runu af bilum sem þekja hálflínu. Sýnið að
+
+$$
+\sum_{n=1}^\infty|I_n| = \infty.
+$$
+
+***
+
+## Dæmi 4 {-}
+
+Faldmengi $d$ bila, $B := I_1\times\dots\times I_d$, kallast **kassi í** $\mathbb R^d$ eða $d$-kassi. Töluna
+
+$$
+|B| := |I_1|\dots|I_d|
+$$
+
+köllum við **rúmmál** kassans B. Sýnið að um sérhvern kassa B í $\mathbb R^d$ gildi
+
+$$
+|B| = \lim_{N\rightarrow\infty}\frac{1}{N^d}\#\left(B\cap\frac1N\mathbb Z^d\right)
+$$
+
+þar sem $\frac1N\mathbb Z^d := \{\frac1N(k_1, \dots, k_d)|k_1,\dots,k_d\in\mathbb Z\}$.
+
+***
+
+## Dæmi 5 {-}
+
+Látum A og B vera hlutmengi í $\mathbb R^d$, sem hvort um sig er sammengi endanlega margra $d$-kassa. Sýnið að hið sama gildi þá einnig um hlutmengin $A\cup B$, $A\cap B$, $A\backslash B$ og $A\Delta B$.
+
+***
+
+## Dæmi 6 {-}
+
+Fyrir sérhvert $n\in\mathbb N$ skilgreinum við fall
+
+$$
+f_n:[0,\infty)\rightarrow\mathbb R, \quad x\rightarrow \frac{x\sqrt n}{(1+x^2)n}.
+$$
+
+Sannið eða hrekið eftirfarandi fullyrðingar.
+
+*(a)* Runan $(f_n(x))_{n\geq1}$ stefnir á núll fyrir sérhvert $x$.
+
+*(b)* Runan $(f_n)_{n\geq1}$ stefnir í jöfnum mæli á núllfallið.
+
+*(c)* Runan $(\int_0^\infty f_n(x)dx)_{n\geq 1}$ stefnir á núll.
+
+
+
+
+
+
+
+

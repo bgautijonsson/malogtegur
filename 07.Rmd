@@ -1,0 +1,483 @@
+```{r, echo = F, warning = F, message = F}
+library(tidyverse)
+library(cowplot)
+theme_set(theme_bw() + panel_border() + background_grid())
+```
+
+# Heildanleg föll
+
+## Skilgreining 
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $E\in \mathcal F$. Við segjum að fall $f:\Omega\rightarrow\mathbb R$ sé **heildanlegt á ** $E$ ef það er mælanlegt og $\int_E f^+d\mu < \infty$ og $\int_E f^-d\mu < \infty$. Þá kallast rauntalan
+
+$$
+\int_Efd\mu := \int_Ef^+d\mu - \int_Ef^-d\mu
+$$
+
+**heildi fallsins** $f$ **yfir** $E$ **m.t.t. málsins** $\mu$.
+
+Mengi allra falla, sem eru heildanleg á $E$, verður táknað $\mathcal L(E,\mu)$ eða bara $\mathcal L^1$ ef ekki er hætta á ruglingi.
+
+***
+
+## Setning
+
+Látum $f$ vera mælanlegt fall á málrúmi $(\Omega, \mathcal F, \mu)$ og $E\in \mathcal F$. Þá er $f$ í $\mathcal L^1(E, \mu)$ þá og því aðeins að fallið $|f|$ sé í $\mathcal L^1(E,\mu)$. Sé svo þá gildir einnig
+
+$$
+\left|\int_E fd\mu \right| \leq \int_E|f|d\mu.
+$$
+
+***
+
+**Sönnun.** Athugum að $f\in\mathcal L^1(E,\mu)$ ef og aðeins ef bæði föllin $f^+$ og $f^-$ eru heildanleg. 
+
+$$
+f = f^+ + f^- \\
+|f| = f^+ + f^-
+$$
+
+Sjáum að $f\in\mathcal L^1(E,\mu)$ ef og aðeins ef $|f|\in\mathcal L^1(E,\mu)$. Ef $f\in\mathcal L^1(E,\mu)$ þá er
+
+$$
+\begin{aligned}
+|\int_E fd\mu| &= |\int_E f^+d\mu - \int_E f^-d\mu| \\
+&\leq \int_E f^+d\mu + \int_E f^-d\mu \\ 
+&= \int_E(f^++f^-)d\mu = \int_E|f|d\mu
+\end{aligned}
+$$
+
+***
+
+### Athugasemd
+
+1. Ef $f$ er mælanlegt fall á $(\Omega, \mathcal F)$ og $E\in\mathcal F$ og $g\in \mathcal L^1(E,\mu)$ þ.a. $|f|\leq |g|$, þá er $f\in\mathcal L^1(E,\mu)$ og $\int_E|f|d\mu \leq \int_E|g|d\mu$.
+
+2. Það getur gerst með Riemann-heildi að $\int_{-\infty}^\infty f(x)dx$ er samleitið en $\int_{-\infty}^\infty|f(x)|dx$ er ekki samleitið. Svona gerist ekki með Lebesgue-heildi því fall $f$ er heildanlegt ef og aðeins ef $|f|$ er heildanlegt *(innbyggð alsamleitni)*.
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $E\in \mathcal F$. Ef $f, g\in \mathcal L^1(E,\mu)$ og $c\in\mathbb R$, þá gildir:
+
+**1.** Fallið $cf$ er í $\mathcal L^1(E,\mu)$ og $\int_E cfd\mu = c\int_Efd\mu$
+
+**2.** Fallið $f + g$ er í $\mathcal L^1(E,\mu)$ og
+
+$$
+\int_E(f+g)d\mu = \int_Efd\mu + \int_Egd\mu
+$$
+
+***
+
+**Sönnun.**
+
+**1.** Tilvikið $c=0$ er augljóst. **Gerum ráð fyrir að $c>0$.** Þá er $(cf)^+ = cf^+$ og $(cf)^- = cf^-$. *12.3.2** segir að ef $g\geq0$ þá $\int_E(cg)d\mu = c\int_E gd\mu$. Notum þetta 
+
+$$
+\begin{aligned}
+\int_E(cf)d\mu &= \int_E(cf)^+d\mu - \int_E(cf)^-d\mu \\
+&= \int_E cf^+d\mu - \int_E cf^- d\mu \\
+&= c\int_E f^+d\mu - c\int_E f^-d\mu \\
+&= c(\int_Ef^+d\mu - \int_Ef^-d\mu) \\
+&= c\int_Efd\mu
+\end{aligned}
+$$
+
+**Gerum nú ráð fyrir $c<0$.** Þá er $(cf)^+ = |c|f^-$ og $(cf)^- = |c|f^+$. Athugum að |c| = -c.
+
+$$
+\begin{aligned}
+\int_E(cf)d\mu &= \int_E(cf)^+d\mu - \int_E(cf)^-d\mu \\
+&= \int_E |c|f^-d\mu - \int_E |c|f^+ d\mu \\
+&= c\int_E f^-d\mu - c\int_E f^+d\mu \\
+&= c\int_E f^+d\mu - c\int_E f^-d\mu \\
+&= c(\int_Ef^+d\mu - \int_Ef^-d\mu) \\
+&= c\int_Efd\mu
+\end{aligned}
+$$
+
+**2.** Gefum okkur $f,g\in\mathcal L^1(e,\mu)$. Athugum að $|f|, |g| \in\mathcal L^1(E,\mu)$. Þar sem $f+g$ er mælanlegt, $|f| + |g|$ er heildanlegt og $|f+g| \leq |f| + |g|$ heildanlegt og því er $f+g$ heildanlegt. **Ath.** Þarf ekki að gilda að $(f+g)^+ = f^+ + g^+$. Hinsvegar er $f+g = (f^+ + g^+) - (f^- + g^-=$ 
+
+$$
+\begin{aligned}
+\int_E(f+g)d\mu &= \int_E (f^++g^+)d\mu - \int_E(f^-+g^-)d\mu \\
+&= \int_Ef^+d\mu + \int_Eg^+d\mu - \int_Ef^-d\mu - \int_Eg^-d\mu \text{,   (öll } \geq 0) \\
+&= \int_E fd\mu + \int_Egd\mu
+\end{aligned}
+$$
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $E\in F$. Ef $f,g\in \mathcal L^1(E,\mu)$ og $f\leq g$, þá gildir
+
+$$
+\int_E \text{f d}\mu \leq \int_E \text{g d}\mu
+$$
+
+***
+
+**Sönnun.** Höfum séð að ef $0\leq f\leq g$ og $f,g\in\mathcal L^1(E,\mu)$ þá er $\int_Efd\mu \leq \int_Egd\mu$. Höfum núna bara forsendu $f\leq g$ og $f,g\in\mathcal L^1(E,\mu)$. Ef $f\leq g$ þá $f^+\leq g^+$ og $g^-\leq f^-$, $\int f^+d\mu \leq \int g^+ d\mu$, $\int g^-d\mu \leq \int f^-d\mu$.
+
+$$
+\int_Efd\mu = \int_Ef^+d\mu - \int_Ef^-d\mu \leq \int_Eg^+d\mu - \int_Eg^-d\mu = \int_Egd\mu
+$$
+
+```{r, echo = F, message = F, warning = F}
+tibble(x = seq(0, 5, 0.01)) %>% 
+    mutate(fx = (x - 2)^2 - 1,
+           gx = (x-2)^2) %>% 
+    gather(variable, value, fx, gx) %>% 
+    ggplot(aes(x, value, col = variable)) +
+    geom_hline(yintercept = 0) +
+    geom_vline(xintercept = 0) +
+    geom_line() +
+    theme_bw() +
+    ggsci::scale_color_jama() +
+    labs(colour = "")
+```
+
+
+
+
+***
+
+## Setningin um yfirgnæfða samleitni
+
+Látum $(f_n)_{n\geq1}$ vera runu af mælanlegum föllum á málrúmi $(\Omega, \mathcal F, \mu)$ og gerum ráð fyrir að hún stefni n.a. á mælanlegt fall $f$. Ef til er fall $g$ úr $\mathcal L^1(\Omega,\mu)$, sem fullnægir skilyrðinu $|f_n|\leq g$ fyrir öll $n$, þá er $f\in\mathcal L^1(\Omega,\mu)$ og
+
+$$
+\int_\Omega fd\mu = \lim_{n\rightarrow\infty}\int_\Omega f_nd\mu.
+$$
+
+***
+
+**Sönnun.** $\lim_{n\rightarrow\infty}f_n(x) = f(x)$ næstum alls staðar. Látum $E$ vera mælanlegt mengi með mál 0 þ.a. 
+
+$$
+\lim_{n\rightarrow\infty}f_n(x) = f(x), \quad \forall x\in \Omega\backslash E
+$$
+
+Með því að setja $f_n = f_n\pi_{\Omega\backslash E}$ og $f=f\pi_{\Omega\backslash E}$ getum við gert ráð fyrir að $\lim_{n\rightarrow\infty}f_n(x) = f(x)$. Heildin breytast ekki heldur. Athugum nú að $|f_n|\leq g$ svo $f+g\geq0$.
+
+$$
+\begin{aligned}
+\int_\Omega gd\mu + \int_\Omega fd\mu &= \int_\Omega(g+f)d\mu \\
+&= \int_\Omega(g + \liminf f_n)d\mu \\
+&\leq \liminf \int_\Omega(g+f_n)d\mu \\
+&=\liminf(\int_\Omega gd\mu + \int_\Omega fd\mu) \\
+&= \int_\Omega gd\mu + \liminf\int_\Omega f_nd\mu
+\end{aligned}
+$$
+
+Sjáum að
+
+$$
+\begin{aligned}
+\int_\Omega fd\mu &\leq \liminf \int_\Omega f_nd\mu 
+\end{aligned}
+$$
+
+Athugum að $g - f_n\geq 0$
+
+$$
+\begin{aligned}
+\int_\Omega gd\mu - \int_\Omega fd\mu &= \int_\Omega (g - f)d\mu \\
+&= \int_\Omega \liminf(g - f_n)d\mu \\
+&\leq \liminf(\int_\Omega(g-f_n)d\mu) \\
+&= \int_\Omega gd\mu + \liminf(-\int_\Omega f_nd\mu) \\
+&= \int_\Omega gd\mu - \limsup\int_\Omega f_nd\mu
+\end{aligned}
+$$
+
+Sjáum að
+
+$$
+\begin{aligned}
+\limsup \int_\Omega f_nd\mu &\leq \int_\Omega fd\mu \\
+\int_\Omega fd\mu &\leq \liminf\int_\Omega f_nd\mu \\
+&\leq \limsup \int_\Omega f_nd\mu \\
+&\leq \int_\Omega fd\mu
+\end{aligned}
+$$
+
+Sv0
+
+$$
+\lim_{n\rightarrow\infty}\int_\Omega f_nd\mu = \int_\Omega fd\mu
+$$
+
+***
+
+## Setning 
+
+Látum $f$ vera Lebesgue-heildanlegt fall á $\mathbb R^d$. Þá gildir, fyrir sérhvert $n$ úr $\mathbb N^*$, að föllin $g_n:=f\cdot\mathbf1_{\overline B_{(0,n)}}$ og $h_n := \min\{f,n\}$ eru heildanleg og 
+
+$$
+\lim_{n\rightarrow\infty}\int_{\mathbb R^d}|f-g_n|dm = \lim_{n\rightarrow\infty}\int_{\mathbb R^d}|f-h_n|dm = 0.
+$$
+
+***
+
+**Sönnun.** Setjum 
+
+$$
+g(x) = \sum_{k=1}^\infty |f_k(x)| = \lim_{n\rightarrow\infty}\sum_{k=1}^n|f_k(x)|
+$$ 
+
+þá er $g$ mælanlegt, $g(x) \in [0,\infty]$ og $0\leq g_1\leq g_2 \leq \dots$ og $g_n\rightarrow g$. Setningin um einhalla samleitni segir
+
+$$
+\begin{aligned}
+\int_\Omega gd\mu &= \lim_{n\rightarrow\infty} \int_\Omega g_nd\mu \\
+&= \lim\int_\Omega\sum_{k=1}^n|f_n|d\mu \\
+&= \lim\sum_{k=1}^n\int_\Omega|f_k|d\mu \\
+&= \sum_{k=1}^\infty\int_\Omega|f_k|d\mu
+\end{aligned}
+$$
+
+því er $g\in\mathcal L^1(\Omega,\mu)$ og $E=g^{-1}(\infty)$ hefur mál 0. Svo
+
+$$
+\sum_{k=1}^\infty|f_k(x)| < \infty, \quad \forall x\in\Omega\backslash E
+$$
+
+Svo 
+
+$$
+\sum_{k=1}^\infty f_n(x) \text{ samleitin, } \quad \forall x\in\Omega\backslash E \\
+f(x) = 
+\begin{cases}
+\sum_{k=1}^\infty f_n(x), x\in\Omega\backslash E,\\
+0, x\in E
+\end{cases}
+$$
+
+Svo
+
+$$
+|\sum_{k=1}^\infty f_n(x)| \leq g(x), \quad \forall x\in\Omega \\
+\lim_{n\rightarrow\infty}\sum_{k=1}^\infty f_n(x) = f(x) \text{, fyrir næstum öll }x
+$$
+
+Svo $f\in\mathcal L^1(\Omega,\mu)$ og 
+
+$$
+\int_\Omega fd\mu = \int_\Omega (\lim h_n)d\mu = \lim\int_\Omega h_nd\mu = \lim\int_\Omega \sum_{k=1}^n f_nd\mu = \lim\sum_{k=1}^n\int_\Omega f_nd\mu = \sum_{k=1}^\infty\int_\Omega f_kd\mu
+$$
+
+***
+
+## Setning [Beppo Levi]
+
+Látum $(f_k)_{k\geq 1}$ vera runu af mælanlegum föllum á málrúmi $(\Omega,\mathcal F,\mu)$ og gerum ráð fyrir að
+
+$$
+\sum_{k=1}^\infty\int_\Omega |f_k|d\mu < \infty.
+$$
+
+Þá er röðin $\sum_{k=1}^\infty f_k$ samleitin næstum alls staðar að heildanlegu falli $f$ á $\Omega$ og ennfremur gildir
+
+$$
+\int_\Omega fd\mu = \sum_{k=1}^\infty \int_\Omega f_kd\mu
+$$
+
+
+***
+
+**Sönnun.**
+
+***
+
+# Vikublað 7 {-}
+
+## Dæmi 1 {-}
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $f, g:\Omega \rightarrow \overline{\mathbb R}$ vera mælanleg föll.
+
+#### (a) Ef $f$ og $g$ taka gildi sín í $(-\infty, \infty]$, þá gildir {-}
+$$
+\text{ess}\sup(f + g) \leq \text{ess}\sup f + \text{ess}\sup g.
+$$
+
+#### (b) Ef $f$ og $g$ taka gildi sín í $[-\infty, \infty)$, þá gildir {-}
+$$
+\text{ess}\inf f + \text{ess}\inf g \leq \text{ess} \inf(f + g)
+$$
+
+**Ritháttur.** Látum $\Omega$ vera mengi og $\mathcal F$ vera safn hlutmengja í $\Omega$. Þá la´tum við $\mathcal F^\sigma$ tákna $\sigma$-algebruna sem $\mathcal F$ framleiðir.
+
+Ef $\Omega'$ er annað mengi, $f:\Omega \rightarrow \Omega'$ er vörpun og $\mathcal G$ er safn hlutmengja í $\Omega'$, þá setjum við
+
+$$
+f^{-1}(\mathcal G) := \{f^{-1}(E) | E \in \mathcal G\}.
+$$
+
+***
+
+## Dæmi 2 {-}
+
+Látum $f: \Omega_1 \rightarrow \Omega_2$ vera vörpun milli tveggja mengja. Sannið eftirfarandi fullyrðingar:
+
+#### (a) Ef $\mathcal G$ er $\sigma$-algebra á $\Omega_2$, þá er $f^{-1}(\mathcal G)$ $\sigma$-algebra á $\Omega_1$. {-}
+
+* Þar sem að $f^{-1}(\emptyset) = \emptyset$ er $\emptyset\in f^{-1}(\mathcal G)$. 
+
+* Ef  $E \in f^{-1}(\mathcal G)$ þá er til $U \in \mathcal G$ þ.a. $f^{-1}(U) = E$. Þar sem $\mathcal G$ er $\sigma$-algebra er þá $U^c\in \mathcal G$, svo við fáum $f^{-1}(U^c) = E^c$ svo $E^c \in f^{-1}(\mathcal G)$. 
+
+* Tökum þá loks runu $(E_n)_{n\geq1}$ af mengjum í $f^{-1}(\mathcal G)$. Þá er til samsvarandi runa $(U_n)_{n\geq1}$ í $\mathcal G$ þ.a. $f^{-1}(U_n) = E_n$ fyrir öll $n$. Tökum eftir því að $\mathcal G$ er $\sigma$-algebra og því er $\bigcup_{n=1}^\infty U_n \in \mathcal G$. Þar sem frummynd falls dreifist yfir sammengi fáum við að $f^{-1}(\bigcup_{n=1}^\infty U_n) = \bigcup_{n=1}^\infty E_n$ svo $\bigcup_{n=1}^\infty E_n \in f^{-1}(\mathcal G)$.
+
+Ofantalin atriði sýna að $f^{-1}(\mathcal G)$ sé $\sigma$-algebra.
+
+
+
+#### (b) Ef $\mathcal F$ er $\sigma$-algebra á $\Omega_1$ þá er $\mathcal G := \{E\subseteq \Omega_2 | f^{-1}(E)\in \mathcal F\}$ $\sigma$-algebra á $\Omega_2$ {-}
+
+* Þar sem frummynd $\emptyset$ er ávallt $\emptyset$ og $\emptyset\in\mathcal F$ fæst að $\emptyset \in \mathcal G$.
+
+* Ef $E \in \mathcal G$ þá er tilsamsvarandi $U\in \mathcal F$ þ.a. $f^{-1}(U) = E$. Þar sem $\mathcal F$ er $\sigma$-algebra er $U^c\in\mathcal F$ og því $f^{-1}(U^c) = E^c \in \mathcal G$.
+
+* Tökum runu $(E_n)_{n\geq1}$ af mengjum í $\mathcal G$. Til er samsvarandi runa $(U_n)_{n\geq1}$ af mengjum í $\mathcal F$ þ.a. $f^{-1}(U_n) = E_n$ fyrir öll $n$. Þar sem $\mathcal F$ sé $\sigma$-algebra gildir $\bigcup_{n=1}^\infty U_n \in \mathcal F$ og þar sem frummynd dreifist yfir sammengi sjáum við að $f^{-1}(\bigcup_{n=1}^\infty U_n) = \bigcup_{n=1}^\infty E_n$ svo $\bigcup_{n=1}^\infty\in\mathcal G$.
+
+Ofantalin atriði séna að $\mathcal G$ sé $\sigma$-algebra.
+
+
+
+
+#### (c) Ef $\mathcal G$ er safn af hlutmengjum í $\Omega_2$, þá er $(f^{-1}(\mathcal G))^\sigma = f^{-1}(\mathcal G^\sigma)$ {-}
+
+Samkvæmt *(a)* er $f^{-1}(\mathcal G^\sigma)$ $\sigma$-algebra sem inniheldur nauðsynlega $f^{-1}(\mathcal G)$. því fæst að $(f^{-1}(\mathcal G))^\sigma \subseteq f^{-1}(\mathcal G^\sigma)$, svo okkur dugir að leiða út hlutmengjamerkið í öfuga átt. Nú gefur *(b)* að
+
+$$
+\mathcal H := \left\{E\subseteq \Omega_2 | f^{-1}(E)\in(f^{-1}(\mathcal G))^\sigma\right\}
+$$
+
+sé $\sigma$-algebra í $\Omega_2$. Ef við tökum $U\in\mathcal G$ þá er $f^{-1}(U)\in f^{-1}(\mathcal G)$ og þá sér í lagi í $(f^{-1}(\mathcal G))^\sigma$. Því fæst að $\mathcal G \subseteq \mathcal H$, en þar sem $\mathcal H$ er $\sigma$-algebra er $\mathcal G^\sigma \subseteq \mathcal H$. Þar sem hlutmengjavensl varðveitast yfir frummyndir er þá $f^{-1}(\mathcal G^\sigma) \subseteq f^{-1}(\mathcal H) \subseteq (f^{-1}(\mathcal G))^\sigma$.
+
+***
+
+## Skilgreining {-}
+
+Látum $(\Omega_1, \mathcal F)$ og $(\Omega_2, \mathcal G)$ vera tvö mælanleg rúm. Við segjum að vörpun $\varphi: \Omega_1 \rightarrow \Omega_2$ sé **mælanleg** ef $\varphi^{-1}(E) \in \mathcal F$ fyrir öll $E\in\mathcal G$
+
+## Dæmi 3 {-}
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm og $f$ vera tvinngilt fall á $\Omega$. Sýnið að fallið $f$ sé mælanlegt þá og því aðeins að $f$ sé mælanleg vörpun frá $(\Omega, \mathcal F)$ til $(\mathbb C, \mathcal B)$, þar sem $\mathcal B$ táknar samkvæmt venju Borel-algebruna á $\mathbb C$.
+
+## Dæmi 4 {-}
+
+Sýnið að samskeyting endanlega margra mælanlegra varpana sé mælanleg vörpun.
+
+## Dæmi 5 {-}
+
+Látum $(\Omega_1, \mathcal F)$ og $(\Omega_2, \mathcal G)$ vera mælanleg rúm og $\varphi: \Omega_1 \rightarrow \Omega_2$ vera mælanlega vörpun. Sýnið að fyrir sérhvert mál $\mu: \mathcal F \rightarrow [0, \infty]$ gildi að fallið
+
+$$
+\varphi_* \mu: \mathcal G \rightarrow [0, \infty], \quad E \rightarrow \mu(\varphi^{-1}(E))
+$$
+
+sé mál. Við segjum að það sé **mynd vörpunarinnar** $\varphi$ **af málinu** $\mu$.
+
+***
+
+* $\varphi_*\mu(\emptyset) = \mu(\varphi^{-1}(\emptyset)) = \mu(\emptyset) = 0$.
+
+* Tökum runu $(E_n)_{n\geq1}$ af innbyrðis sundurlægum mengjum í $\mathcal G$. Þar sem frummynd dreifist yfir sammengi fæst
+
+$$
+\mu\left(\varphi^{-1}\left(\bigcup_{n=1}^\infty E_n\right)\right) =
+\mu\left(\bigcup_{n=1}^\infty\varphi^{-1}\left( E_n\right)\right) = 
+\sum_{n=1}^\infty\mu(\varphi^{-1}(E_n)) = \sum_{n=1}^\infty\varphi_*\mu(E_n).
+$$
+
+Ofangreind atriði sýna að $\varphi_*\mu$ er mál.
+
+***
+
+## Dæmi 6 {-}
+
+Látum $(s_n)_{n\geq1}$ og $f$ vera eins og í *setningu 12.2.4 og sönnun hennar* og gerum ennfremur ráð fyrir að $f$ sé *takmarkað* fall. Sýnið að runan $(s_n)_{n\geq1}$ stefni á $f$ í jöfnum mæli á $\Omega$.
+
+***
+
+**Lausn.** Þar sem $f$ er takmarkað er til $M$ þ.a. $||f||<M$. Gefum okkur $\varepsilon > 0$. Við viljum sýna að til sé $N\in\mathbb N$ þ.a. $||f-s_n||_\Omega < \varepsilon$ fyrir öll $n\geq N$. Við erum búin að sanna að $s_n \leq f$ fyrir öll $n$ svo við þurfum í raun bara að sýna að $f-s_N < \varepsilon$. Fáum nú:
+
+$$
+\begin{aligned}
+f - s_N &= f - n\mathbf 1_{f^{-1}([n,\infty])} - \sum_{i=1}^{n2^n}\frac{i-1}{2^n}\mathbf1_{f^{-1}([\frac{i-1}{2^n}, \frac{i}{2^n}])} \\
+&< (||f|| - n)\mathbf 1_{f^{-1}([n,\infty])} + \sum_{i=1}^{n2^n}(\frac{i}{2^n} - \frac{i-1}{2^n})\mathbf1_{f^{-1}([\frac{i-1}{2^n}, \frac{i}{2^n}])} \\
+&< (M - n)\mathbf 1_{f^{-1}([n,\infty])} - \sum_{i=1}^{n2^n}\frac{1}{2^n}\mathbf1_{f^{-1}([\frac{i-1}{2^n}, \frac{i}{2^n}])} \\
+&= (M - n)\mathbf 1_{f^{-1}([n,\infty])} - \frac{1}{2^n}\mathbf1_{f^{-1}([0,n])}
+\end{aligned}
+$$
+
+þar sem síðasta jafnaðarmerkið er vegna þess að summan er yfir kenniföll sundurlægra mengja. Þegar $n > M$ fæst að $\mathbf 1_{f^{-1}([n,\infty])} = 0$ og ljóst er að $\frac{1}{2^n}\mathbf1_{f^{-1}([0,n])}\leq1$ svo við fáum að fyrir nógu stór $N$ sé $f-s_N < 2^{-N}$ en þá er ljóst að $f-s_N < \varepsilon$ fyri rnógu stór $N$.
+
+***
+
+## Dæmi 7 {-}
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $t = \sum_{k=1}^mb_k\mathbf 1_{E_k}$ vera (ekki endilega staðlaða framsetningu) á einföldu falli á $\Omega$, þar sem $E_k \in \mathcal F$ fyrir öll $k$. Sýnið að 
+
+$$
+\int_\Omega t d\mu = \sum_{k=1}^m b_k\mu(E_k)
+$$
+
+***
+
+**Lausn.**
+
+***
+
+## Dæmi 8 {-}
+
+Látum $s$ og $t$ vera einföld föll á málrúmi. Sýnið að föllin $\min\{s, t\}$ og $\max\{s, t\}$ séu líka einföld föll.
+
+***
+
+**Lausn.**
+
+
+***
+
+## Dæmi 9 {-}
+
+Látum $f: \mathbb N \rightarrow [0, \infty]$. Sýnið að fallið $f$ sé mælanlegt á $(\mathbb N, \mathcal P(\mathbb N), \mu)$ þar sem $\mu$ er talningarmálið, og um öll hlutmengi E í $\mathbb N$ gildi
+
+$$
+\int_E f d\mu = \sum_{n\in E}f(n).
+$$
+
+***
+
+**Lausn.**
+
+***
+
+## Dæmi 10 {-}
+
+Bíl er ekið frá stað A til staðar B á 50 km meðalhraða, en fjarlægðin frá A til B er 25 km. Hann leggur af stað milli kl 12 og 13 (sama dag) og nemur staðar þegar hann kemur til B. Skilgreinum hendingu (slembibreytu, slembistærð) X á líkindarúminu $([0, 1], P)$, þar sem P táknar einskorðun Lebesgue-málsins við $[0, 1]$, með því að setja
+
+$$
+X(t) := \text{ Fjarlægð bílsins frá B kl 13 ef hann leggur af stað kl 12 + t}.
+$$
+
+Finnið líkindamálið $P_X$, sem hendingin X ákvarðar.
+
+***
+
+**Lausn.**
+
+Sjáum að $X$ varpar $[0,\frac12]$ í $0$. Hins vegar fyir $[\frac12,1]$ varpar $X$ gildinu $t$ í $25 - 50t$. Því er $X(t) = \max(0, 25 - 50t)$. Ljóst er því að frummynd 0 hafi mál $\frac12$, frummynd alls utan $[0,1]$ sé tóm, og allt í $]0,1]$ þjappast um helming við að frummynd sé tekin. Því fæst
+
+$$
+P_X(B) = \frac12 m(B\cap]0,1]) + 
+\begin{cases}
+\frac12 \text{ ef } 0 \in B \\
+0 \text{ annars}
+\end{cases}
+$$
+

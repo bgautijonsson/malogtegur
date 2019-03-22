@@ -1,0 +1,455 @@
+```{r, echo = F, warning = F, message = F}
+library(tidyverse)
+library(cowplot)
+theme_set(theme_bw() + panel_border() + background_grid())
+```
+
+# Innfeldisrúm 
+
+## Upprifjun {-}
+
+Látum $V$ vera $\mathbb K$-vigurrúm ($\mathbb K$ annað hvort $\mathbb R$ eða $\mathbb C$). **Innfeldi** á $V$ er fall
+
+$$
+\langle \cdot,\cdot \rangle:V\times V\rightarrow\mathbb K
+$$
+
+sem uppfyllir eftirtalin skilyrði
+
+1. $\langle x,x \rangle > 0$ ef $x\neq 0$
+2. $\langle x,y \rangle  = \overline{\langle y,x \rangle}$.
+3. $\langle x + y,z \rangle = \langle x,y \rangle + \langle y,z \rangle$
+4. $\langle cx,y \rangle = c\langle x,y \rangle$ fyrir allar tölur $c$.
+
+Vigurrúm með gefnu innfeldi er nefnt **infeldisrúm**.
+
+***
+
+## Setning {-}
+
+Látum $V$ vera innfeldisrúm og setjum $||x|| := \sqrt{\langle x,x \rangle}$ fyrir öll $x$ úr $V$. Þá gildir um öll $x$ og $y$ úr $V$:
+
+1. $|\langle x,y \rangle| \leq ||x|| ||y||$
+2. $||x + y|| \leq ||x|| + ||y||$.
+
+Fyrri ójafnan er kennd við Cauchy, Búnjakovskí og Schwartz, en sú síðari kallast þríhyrningsójafnan.
+
+***
+
+**Sönnun.**
+
+***
+
+Af ofangreindri setningu leiðir að fyrir sérhvert innfeldisrúm $V$ er fallið $V\rightarrow\mathbb R, x\rightarrow||x||$ norm á $V$. Við köllum það **innfeldisnormið** á $V$.
+
+Innfeldisrúm er kallað **Hilbert-rúm** ef það er fullkomið m.t.t. firðarinnar sem innfeldisnormið gefur af sér.
+
+***
+
+## Setning {-}
+
+Fyrir $f$ og $g$ úr $L^2(\Omega,\mu)$ setjum við
+
+$$
+\langle f,g \rangle := \int_\Omega f\bar g d\mu.
+$$
+
+Þá er $\langle \cdot,\cdot \rangle$ innfeldi á $L^2(\Omega,\mu)$ sem gefur af sér normið $||\cdot||_2$ og gerir $L^2(\Omega,\mu)$ að Hilbert-rúmi.
+
+***
+
+**Sönnun.** Sýnum að $L^2(\Omega,\mu)$ sé vigurrúm.
+
+Setjum $f,g\in L^2(\Omega,\mu)$. Þar sem $\vert f(x) + g(x) \vert \leq 2\max(\vert f(x)\vert, \vert g(x)\vert)$ höfum við að 
+
+$$
+\vert f(x) + g(x)\vert^2\leq4(\vert f(x)\vert^2 + \vert g(x)\vert^2),
+$$
+
+og því
+
+$$
+\int_\Omega \vert f + g\vert^2d\mu \leq 4\int_\Omega\vert f\vert^2d\mu + 4\int_\Omega\vert g\vert^2d\mu < \infty
+$$
+
+svo að $f + g\in L^2(\Omega, \mu)$. Augljóst er að ef $a\in \mathbb R$ þá er $af\in L^2(\Omega,\mu)$. Því er $L^2(\Omega,\mu)$ vigurrúm.
+
+Sýnum svo að innfeldið sé vel skilgreint, þ.e. að $f\bar g\in L^2(\Omega, \mu)$. 
+
+Rifjum upp að fyrir $A,B\geq0$ gildir $2AB\leq A^2 + B^2$ svo að
+
+$$
+\int_\Omega f\bar gd\mu \leq \frac12 (\Vert f\Vert^2 + \Vert g\Vert^2).
+$$
+
+Sýnum að innfeldið uppfylli skilyrðin fjögur.
+
+1. $\langle f, f\rangle = \int_\Omega |f|^2d\mu \geq 0$
+2. $\langle f, g\rangle = \int_\Omega f\bar gd\mu = \overline{\int_\Omega \bar fgd\mu} = \overline{\langle g, f\rangle}$
+3. $\langle f + h, g \rangle = \int_\Omega(f + h)\bar gd\mu = \int_\Omega f\bar gd\mu + \int_\Omega h\bar gd\mu = \langle f, g\rangle + \langle h, g\rangle$
+4. $\langle af, g\rangle = \int_\Omega af\bar gd\mu = a\int_\Omega f\bar hd\mu = a\langle f,g\rangle$
+
+Sýnum svo að $L^2(\Omega,\mu)$ sé fullkomið í innfeldisnorminu.
+
+Látum $(f_n)_{n\geq1}$ vera Cauchy runu í $L^2$, og skoðum hlutrunu hennar, $(f_{n_k})_{k\geq1}$, sem hefur þá eiginleika að
+
+$$
+\Vert f_{n_{k+1}} - f_{n_k}\Vert_2 \leq 2^{-k}, \quad \text{fyrir öll }k\geq 1.
+$$
+
+Setjum nú
+
+$$
+g_k = \sum_{i=1}^k \Vert f_{n_{i+1}} - f_{n_i}\Vert_2, \quad g= \lim_{k\rightarrow\infty}g_k = \sum_{i=1}^\infty\Vert f_{n_{i+1}} - f_{n_i}\Vert_2.
+$$
+
+Þríhyrningsójafnan gefur okkur að $\Vert g_k\Vert_2 \leq \sum_{i=1}^k2^{-i}$ og við beitum reglu Fatou á jákvæðu mælanlegu föllum $g_k^2$ þannig að
+
+$$
+\Vert g\Vert^2_2 = \int_\Omega \lim_{k\rightarrow\infty} g_k^2d\mu \leq \liminf_{k\rightarrow\infty}\int_\Omega g_k^2d\mu\leq 1.
+$$
+
+Við sjáum að $g$ er endanlegt næstum alls staðar og $f_{n_1} + \sum_{i\geq1}(f_{n_{i+1}} - f_{n_i})$ er alsamleitin næstum alls staðar með markgildi $f$. Við þurfum nú að sýna að $f\in L^2$. Tökum fyrst eftir að $f = \lim_{k\rightarrow\infty}f_{n_k}$ næstum alls staðar, og fyrir gefið $\varepsilon > 0$ getum við fundið $N$ svo að $\Vert f_n - f_m\Vert_2 < \varepsilon$ fyrir sérhver $m,n\geq N$. Beitum reglu Fatou á rununa $(\vert f_{n_i} - f_m\vert^2)_{i\geq1}$ og látum $i\rightarrow \infty$. Fáum
+
+$$
+\int_\Omega \vert f - f_m \vert d\mu \leq \liminf_{i\rightarrow\infty}\int_\Omega\vert f_{n_i} - f_m\vert^2d\mu \leq \varepsilon^2.
+$$
+
+Fáum því að $f - f_m\in L^2$  og þá $f = f_m + (f - f_m) \in L^2$ auk þess að $\Vert f - f_m\Vert_2 < \varepsilon$ fyrir öll $m\geq N$. Því gildir að $f_m\rightarrow f$ í innfeldisnorminu svo að $L^2(\Omega,\mu)$ er fullkomið.
+
+***
+
+## Setning {-}
+
+Látum $V$ vera innfeldisrúm og $v\in V$. Þá eru föllin $x\rightarrow \langle x,v\rangle$, $x\rightarrow \langle v,x\rangle$ og $x\rightarrow ||x||$ samfelld á $V$.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning {-}
+
+Látum $V$ vera innfeldisrúm. Þá gildir um öll $x$ og $y$ úr $V$:
+
+1. $||x + y||^2 + ||x - y||^2 = 2(||x|| + ||y||)$.
+2. $4\langle x,y\rangle = ||x+y||^2 - ||x-y||^2 + i(||x+iy||^2 - ||x-iy||^2)$.
+
+Fyrri jafnan er kölluð *samsíðungsregla* og sú síðari *skautunarjafna*.
+
+***
+
+**Sönnun.**
+
+***
+
+## Skilgreining {-}
+
+Við segjum að tveir vigrar $x$ og $y$ úr innfeldisrúmi séu **þverstæðir** eða **hornréttir** (hvor á annan) ef $\langle x,y\rangle = 0$. Þetta er stundum táknað $x\perp y$.
+
+Látum $X$ vera hlutmengi í innfeldisrúmi $V$. Setjum
+
+$$
+X^\perp := \{v\in V|\langle v,x\rangle = 0, \forall x\in X\}
+$$
+
+og köllum $X^\perp$ **hornrétt fyllirúm** $X$.
+
+Fljótséð er að $X^\perp$ er lokað hlutvigurrúm í $V$.
+
+## Æfing {-}
+
+Látum $x$ og $y$ vera þverstæða vigra í innfeldisrúmi. Sýnið að 
+
+$$
+||x||^2 + ||y||^2 = ||x + y||^2.
+$$
+
+***
+
+**Lausn.**
+
+***
+
+## Setning {-}
+
+Látum $K$ vera lokað hlutrúm í Hilbert-rúmi $H$ og $x\in H$. Þá er til nákvæmlega einn vigur $y$ úr $K$, sem fullnægir eftirfarandi jafngildum skilyrðum.
+
+1. $x - y\in K^\perp$
+2. $||x - y|| = \inf\{||x - z|| | z \in K\}$.
+
+***
+
+**Sönnun.**
+
+***
+
+
+## Setning {-}
+
+Látum $K$ vera lokað hlutrúm í Hilbert-rúmi H. Þá er hægt að skrifa sérhvern vigur $x$ úr $K$ á nákvæmlega einn veg sem $x = x_1 + x_2$ þar sem $x_1 \in K$ og $x_2 \in K^\perp$. Auk þess gildir að varpanirnar
+
+$$
+P:H\rightarrow H, x\rightarrow x_1 \quad \text{og} \quad Q:H\rightarrow H, x\rightarrow x_2
+$$
+
+eru línulegar og fullnægja skilyrðinu
+
+$$
+\Vert x\Vert^2 = \Vert P(x)\Vert^2 + \Vert Q(x)\Vert^2, \quad \text{fyrir öll }x\in H.
+$$
+
+***
+
+Sönnun.
+
+***
+
+## Skilgreining {-}
+
+Varpanirnar $P$ og $Q$ kallast **hornrétt ofanvörp** á $K$ og $K^\perp$.
+
+## Skilgreining {-}
+
+Línuleg vörpun af $\mathbb K$-vigurrúmi yfir í $\mathbb K$ kallast **línulegt felli** (á vigurrúminu).
+
+## Setning {-}
+
+Látum $L$ vera *samfellt línulegt felli* á Hilbert-rúmi $H$. Þá er til nákvæmlega einn vigur $y$ úr $H$, sem uppfyllir skilyrðið
+
+$$
+L(x) = \langle x,y\rangle, \quad \text{fyrir öll }x\in H.
+$$
+
+***
+
+**Sönnun.**
+
+***
+
+# Vikublað 10 {-}
+
+## Dæmi 1 (Skil) {-}
+
+Reiknið heildið
+
+$$
+\int_0^{\frac\pi 2} \frac{x\cos x}{\sin x}dx
+$$
+
+með því að beita *setningu 17.1.1* á fallið
+
+$$
+F(u) := \int_0^{\frac\pi2}\frac{\arctan(u\tan x)}{\tan x}dx.
+$$
+
+### Lausn {-} 
+
+Veljum bil $[a,b] = [0,1]$ og $\Omega = [0,\pi/2]$ og skilgreinum fallið
+
+$$
+f(x,t) = \arctan(t\tan(x))\cot(x).
+$$
+
+Tökum eftir að
+
+$$
+\begin{aligned}
+f(x,1) &= x\cot(x), \\
+f(x,0) &= 0 \quad \text{og} \\
+\frac{\partial f}{\partial t}(x,t) &= \frac{1}{t^2\tan(x)^2 + 1} \\
+&=\frac{\cos(x)^2}{(t^2 - 1)\sin(x)^2 + 1}.
+\end{aligned}
+$$
+
+Við sjáum að nefnarinn getur orðið núll þegar $t = 0$, en ef $t$ er núll fæst að 
+
+$$
+\frac{\partial f}{\partial t}(x, 0) = \frac{cos(x)^2}{1 - \sin(x)^2} = \frac{\cos(x)^2}{\cos(x)^2} = 1
+$$
+
+svo hlutafleiðan er skilgreind á öllu $\Omega\times[a,b]$. Við hámörkum hlutafleiðuna með því að lágmarka nefnarann, svo hlutafleiðan er takmörkuð að ofan á okkar mengi. Öllum skilyrðum setningarinnar er þá uppfyllt og við fáum að
+
+$$
+\frac{\partial}{\partial t}\int_\Omega f(x,t)d\mu(x) = 
+\int_\Omega \frac{\partial f}{\partial t}(x,t)d\mu(x) =
+\int_0^{\pi/2}\frac{1}{t^2\tan(x)^2 + 1}dx.
+$$
+
+Framkvæmum breytuskiptin $u = \tan(x)$ og þá $du = \cos(x)^{-2}dx$ Fáum þá
+
+$$
+\int_0^{\pi/2}\frac{1}{t^2\tan(x)^2 + 1}dx =
+\int_0^\infty\frac{1}{(u^2+1)(t^2u^2+1)}du.
+$$
+
+Með stofnbrotaliðun fæst nú
+
+$$
+\int_0^\infty\frac{1}{(u^2+1)(t^2u^2+1)}du =
+\int_0^\infty\frac{t^2}{(t^2 - 1)(t^2u^2+1)}du -
+\int_0^\infty\frac{1}{(t^2-1)(u^2+1)}du.
+$$
+
+Nú þar sem $t-in$ eru óháð heildinu má taka þau út fyrir þarf þá bara að reikna heildið
+
+***
+
+## Dæmi 2 (Skil) {-}
+
+Látum $a,b\in]-\infty, \infty[$. Sannið eftirfarandi fullyrðingar.
+
+1. Fall $\varphi:(a,b)\rightarrow\mathbb R$ er kúpt þá og því aðeins að um allar rauntölur $s,t,u$ sem uppfylla $a<s<t<u$, gildir
+
+$$
+\frac{\varphi(t) - \varphi(s)}{t - s}\leq \frac{\varphi(u) - \varphi(t)}{u - t}
+$$
+
+2. Diffranlegt fall á $(a,b)$ er kúpt þá og því aðeins að afleiða þess sé vaxandi á $(a,b)$.
+
+3. Öll kúpt föll á $(a,b)$ eru samfelld á $(a,b)$.
+
+### Lausn {-}
+
+***
+
+1.Setjum
+
+$$
+F(x, y) := \frac{\varphi(y) - \varphi(x)}{y - x}.
+$$
+
+$F$ er þá hallatala striksins sem tengir saman tvo punkta $(x, \varphi(x))$ og $(y, \varphi(y))$, $y>x$, á ferli fallsins $\varphi$. Með því að skrifa ójöfnuna úr dæminu með fallinu $F$ fæst
+
+$$
+\begin{aligned}
+F(s, t) \leq F(u, t), \quad a<s<t<u<b.
+\end{aligned}
+$$
+
+Fullyrðingin heldur því fram að fall sé kúpt á bilinu $[a,b]$ þá og því aðeins að halli þess minnki ekki á því bili. Við sjáum á myndinni að neðan að þetta samræmist því innsæi að bein lína milli tveggja punkta á ferli kúpts falls sé aldrei fyrir neðan ferilinn. Ef við umritum ójöfnuna fáum við líka
+
+$$
+\begin{aligned}
+\frac{\varphi(t) - \varphi(s)}{t - s} &\leq \frac{\varphi(u) - \varphi(t)}{u - t} \\
+\rightarrow (\varphi(t) - \varphi(s)) (u - t) &\leq (\varphi(u) - \varphi(t))(t - s) \\
+\rightarrow (u - t)\varphi(t) - (u - t)\varphi(s) &\leq (t - s)\varphi(u) - (t - s)\varphi(t) \\
+\rightarrow (u - s)\varphi(t)  &\leq (t - s)\varphi(u) + (u - t)\varphi(s).
+\end{aligned}
+$$
+
+Þetta segir að fyrir kúpt full sé flatarmál kassa með hæð $\varphi(t)$ og breidd $(u - s)$ ekki stærri en samanlagt flatarmál tveggja kassa, annar með hæð og breidd $\varphi(u)$ og $(t - s)$, og hinn $\varphi(s)$ og $(u - t)$. Á myndinni að neðan má túlka þetta svo að blái kassinn er aldrei stærri en línustrikuðu kassarnir.
+
+```{r, echo = F, warning = F, message = F}
+tibble(x = seq(-0.1, 1.1, 0.05),
+       y1 = 0.2 + x,
+       y2 = 0.2 + x^2) %>% 
+    gather(variable, value, -x) %>% 
+    ggplot(aes(x, value, lty = variable)) +
+    annotate("rect",xmin = 0.3, xmax = 0.5, ymin = 0, ymax = 0.2 + 0.7^2,
+             alpha = 0.4, fill = "khaki2", col = "grey50", lty = 2) +
+    annotate("rect", xmin = 0.3, xmax = 0.7, ymin = 0, ymax = 0.2 + 0.5^2,
+             alpha = 0.3, fill = "steelblue1", col = "black") +
+    annotate("rect",xmin = 0.5, xmax = 0.7, ymin = 0, ymax = 0.2 + 0.3^2,
+             alpha = 0.3, fill = "khaki", col = "grey50", lty = 2) +
+    geom_line(alpha = 0.5) +
+    annotate("text", x = 0.6, y = 0.12 + 0.5^2, 
+             label = latex2exp::TeX("$\\varphi(t)(u - s)$")) +
+    annotate("text", x = 0.4, y = 0.25, 
+             label = latex2exp::TeX("$\\varphi(u)(t - s)$")) +
+    annotate("text", x = 0.6, y = 0.05 + 0.3^2, 
+             label = latex2exp::TeX("$\\varphi(s)(u - t)$")) +
+    guides(lty = "none") +
+    scale_x_continuous(breaks = c(0, 0.3, 0.5, 0.7, 1),
+                       labels = c("a", "s", "t", "u", "b")) +
+    scale_y_continuous(breaks = 0.2 + c(-0.2, 0, 0.3^2, 0.5^2, 0.7^2, 1), 
+                       labels = c(0,
+                                  latex2exp::TeX("$\\varphi(a)$"),
+                                  latex2exp::TeX("$\\varphi(s)$"),
+                                  latex2exp::TeX("$\\varphi(t)$"),
+                                  latex2exp::TeX("$\\varphi(u)$"),
+                                  latex2exp::TeX("$\\varphi(b)$"))) +
+    labs(x = "", y = "") +
+    theme(panel.grid.minor.y = element_blank())
+```
+
+2. Fæst með því að að velja $x,y\in(a,b), x>y$ og skoða ójöfnuna
+
+$$
+\begin{aligned}
+F(x, x+\varepsilon) \leq F(y, y+\varepsilon), \quad x < x + \varepsilon \leq y < y + \varepsilon.
+\end{aligned}
+$$
+
+fyrir gefið $\varepsilon > 0$.
+
+3. Allar tölur $x\in(a,b)$ má skrifa á forminu $x = \lambda a + (1 - \lambda)b$ þar sem $\lambda\in(0,1)$. Fáum þá
+
+$$
+\begin{aligned}
+\frac{\varphi(x) - \varphi(a)}{x - a} &= \frac{\varphi(\lambda a + (1 - \lambda)b) - \varphi(a)}{\lambda a + (1 - \lambda)b - a} \\
+&\leq \frac{\lambda \varphi(a) + (1 - \lambda)\varphi(b) - \varphi(a)}{\lambda a + (1 - \lambda)b - a} \\
+&= \frac{(\lambda - 1) \varphi(a) + (1 - \lambda)\varphi(b)}{(\lambda - 1)a + (1 - \lambda)b} \\
+&= \frac{(1 - \lambda)(\varphi(b) -\varphi(a))}{(1 - \lambda)(b - a)} \\
+&= \frac{\varphi(b) - \varphi(a)}{b - a}
+\end{aligned}
+$$
+
+## Dæmi 3 {-}
+
+Látum $(\Omega,\mathcal F,\mu)$ vera málrúm og $f\in\mathcal L(\Omega,\mu)$. Sýnið að fyrir sérhvert $\varepsilon > 0$ sé til $\delta > 0$, sem fullnægur eftirfarandi skilyrði:
+
+$$
+\int_E |f|d\mu < \varepsilon \quad \text{fyrir öll } E\in\mathcal F, \text{ sem uppfylla } \mu(E)>\delta.
+$$
+
+### Lausn {-}
+
+***
+
+## Dæmi 4 {-}
+
+Látum $(\Omega,\mathcal F,\mu)$ vera málrúm. Sýnið að sérhvert $f\in\mathcal L^1(\Omega,\mu)$ fullnægi skilyrðinu
+
+$$
+\lim_{x\rightarrow\infty}x\mu(f^{-1}([x,\infty)) = 0.
+$$
+
+Er mælanlegt fall á $\Omega$ heildanlegt ef það uppfyllir umrætt skilyrði?
+
+### Lausn {-}
+
+***
+
+## Dæmi 5 (Skil) {-}
+
+Sýnið með dæmi að niðurstaðan í *dæmi 8.11* sé ekki rétt ef skilyrðinu 
+
+$$
+\int_\Omega fd\mu < \infty
+$$
+
+er sleppt.
+
+### Lausn {-}
+
+***
+
+## Dæmi 6 {-}
+
+Látum $(\Omega,\mathcal F,\mu)$ vera málrúm og $f\in\mathcal L^1(\Omega,\mu)$. Sannið eftirfarandi fullyrðingar.
+
+1. Fyrir sérhverja rauntölu $a > 0$ hefur mengið $\{x\in\Omega| |f(x)|\geq a\}$ endanlegt mál.
+
+2. Mengið $\{x\in\Omega|f(x)\neq 0\}$ er teljanlegt sammengi mengja sem hvert um sig er mælanlegt og hefur endanlegt mál. (Slík mengi eru sögð hafa $\mathbf \sigma$**-endanlegt** mál).
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+book_filename: "Glósur_MogT"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: ""

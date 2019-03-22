@@ -1,0 +1,253 @@
+# Líkindamál 
+
+## Skilgreining 
+
+Málrúm $(\Omega, \mathcal F, P)$ er kallað **líkindarúm** ef $P(\Omega) = 1$. Þá er sagt að P sé **líkindamál**. 
+
+Í líkindarúmi $(\Omega, \mathcal F, P)$ eru hlutmengin í $\Omega$, sem tilheyra $\mathcal F$, iðulega kölluð **atburðir**.
+
+***
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F, P)$ vera líkindarúm, $A, B \in \mathcal F$ og gerum ráð fyrir að $P(B) > 0$. Þá kallast talan
+
+$$
+P(A|B) := \frac{P(A\cap B)}{P(B)}
+$$
+
+**skilyrt líkindi $A$ að uppfylltu $B$**.
+
+***
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F, P)$ vera líkindarúm. Við segjum að atburðir A og B úr $\mathcal F$ séu **óháðir** ef
+
+$$
+P(A\cap B) = P(A) \cdot P(B).
+$$
+
+***
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F, P)$ vera líkindarúm og $\mathcal F_1$ og $\mathcal F_2$ vera tvær $\sigma$-algebrur, sem báðar eru innihaldnar í $\mathcal F$. Við segjum að $\mathcal F_1$ og $\mathcal F_2$ séu **óháðar** ef um öll $A_1 \in \mathcal F_1$ og $A_2 \in \mathcal F_2$ gildir
+
+$$
+P(A_1 \cap A_2) = P(A_1) \cdot P(A_2)
+$$
+
+***
+
+# Mælanleg föll 
+
+## Málvenja 
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm. Sagt er að tiltekin fullyrðing um punktana í $\Omega$ sé rétt **næstum alls staðar** (oft skammstafað **n.a.**) ef til er $N \in \mathcal F$ sem hefur þá eiginleika að $\mu(N) = 0$ og fullyrðingin er rétt varðandi alla punkta úr $\Omega \backslash N$.
+
+***
+
+## Skilgreining 
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm. Fall $f: \Omega \rightarrow \mathbb R$ er sagt $\mathcal F$**-mælanlegt** (eða bara **mælanlegt** ef ekki er hætta á ruglingi) ef um sérhvert bil I í $\mathbb R$ gildir að $f^{-1}(I)$ sé mælanlegt.
+
+Í því tilfelli þegar $\Omega$ er Lebesgue-mælanlegt mengi í $\mathbb R^d$ og $\mathcal F = \mathcal M$, þá segjum við að slík föll séu **Lebesgue-mælanleg** og í tilfellinu þegar $\Omega$ er Borel-mengi í $\mathbb R$ og $\mathcal F = \mathcal B$ segjum við að slík föll séu **Borel-mælanleg** eða **Borel-föll**.
+
+***
+
+## Setning 
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm og $f: \Omega \rightarrow \mathbb R$. Þá eru eftirfarandi skilyrði jafngild.
+
+1. Fallið $f$ er mælanlegt.
+
+2. Mengið $f^{-1}((a, \infty))$ er mælanlegt fyrir sérhvert $a$ úr $\mathbb R \cup \{-\infty\}$.
+
+3. Mengið $f^{-1}([a, \infty))$ er mælanlegt fyrir sérhvert $a$ úr $\mathbb R$
+
+4. Mengið $f^{-1}((-\infty, a))$ er mælanlegt fyrir sérhvert $a$ úr $\mathbb R \cup \{\infty\}$.
+
+5. Mengið $f^{-1}((-\infty, a])$ er mælanlegt fyrir sérhvert $a$ úr $\mathbb R$.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning
+
+Látum $f$ og $g$ vera mælanleg föll á mælanlegu rúmi $(\Omega, \mathcal F)$ og $F: \mathbb R \times \mathbb R \rightarrow \mathbb R$ vera samfellt fall. Þá er fallið
+
+$$
+h: \Omega \rightarrow\mathbb R, \quad x\rightarrow F(f(x), g(x))
+$$
+
+mælanlegt.
+
+***
+
+**Sönnun.**
+
+***
+
+## Athugasemd
+
+Fyrir raungilt fall á mengi X skilgreinum við föll $f^+$ og $f^-$ á X með því að setja
+
+$$
+f^+(x) := \max\{f(x), 0\} \quad \text{og} \quad f^-(x) := \max\{-f(x), 0\}.
+$$
+
+***
+
+## Setning 
+
+Látum $f$ og $g$ vera mælanleg föll á mælanlegu rúmi $(\Omega, \mathcal F)$ og $c$ vera rauntölu. Þá eru föllin
+
+$$
+cf, \quad f^2, \quad f + g, \quad fg, \quad |f|, \quad f^+, \quad f^-
+$$
+
+öll mælanleg.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning 
+
+Látum $(f_n)_{n\geq1}$ vera runu af mælanlegum föllum á mælanlegu rúmi $(\Omega, \mathcal F)$ og $k$ vera náttúrulega tölu. Þá eru föllin
+
+$$
+\max_{n\leq k}f_n, \quad \min_{n\leq k}f_n, \quad \sup_n f_n, \quad \inf_n f_n, \quad \limsup_{n\rightarrow\infty}f_n, \quad \liminf_{n\rightarrow\infty}f_n
+$$
+
+öll mælanleg.
+
+***
+
+**Sönnun.**
+
+
+***
+
+## Setning
+
+Látum $(f_n)_{n\geq1}$ vera runu af mælanlegum föllum á mælanlegu rúmi $(\Omega, \mathcal F)$ og $k$ vera náttúrulega tölu. Þá eru föllin 
+
+$$
+\max_{n\leq k}f_n, \quad \min_{n\leq k}f_n, \quad \sup_n f_n, \quad \inf_n f_n, \quad \limsup_{n\rightarrow\infty}f_n, \quad \liminf_{n\rightarrow \infty}f_n
+$$
+
+öll mælanleg.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning 
+
+Látum $(f_n)_{n\geq1}$ vera runu af mælanlegum föllum á mælanlegu rúmi $(\Omega, \mathcal F)$ og gerum ráð fyrir að runan stefni á fall $f$ (í hverjum punkti). Þá er fallið $f$ mælanlegt.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning
+
+Látum $f$ og $g$ vera föll á fullkomnu málrúmi $(\Omega, \mathcal F, \mu)$, sem eru eins næstum alls staðar. Ef annað fallanna er mælanlegt, þá er hitt það líka.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning
+
+Látum $(f_n)_{n\geq1}$ vera runu af mælanlegum föllum á fullkomnu málrúmi $(\Omega, \mathcal F, \mu)$ og $f$ vera fall á $\Omega$ sem hefur þann eiginleika að $\lim_{n\rightarrow\infty} f_n(x) = f(x)$ næstum alls staðar. Þá er f mælanlegt fall.
+
+***
+
+**Sönnun.**
+
+***
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm. Fall $f: \Omega \rightarrow \overline{\mathbb R}$ er sagt $\mathcal F$**-mælanlegt** ef um allar rauntölur $a$ gildir að mengið $f^{-1}((a,\infty])$ er í $\mathcal F$.
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm. Fall $f: \Omega \rightarrow \overline{\mathbb R}$ er mælanlegt ef og aðeins ef mengin $f^{-1}(\infty)$ og $f^{-1}(-\infty)$ eru bæði mælanleg og fallið $f_1: \Omega\rightarrow\mathbb R$, sem skilgreint er með því að setja
+
+$$
+\begin{aligned}
+f_1(x) = 
+\begin{cases}
+f(x), \quad &x\in f^{-1}(-\infty, \infty) \\
+0, \quad &x\in f^{-1}(\{-\infty, \infty\}),
+\end{cases}
+\end{aligned}
+$$
+
+er mælanlegt.
+
+***
+
+**Sönnun.**
+
+
+***
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $f: \Omega \rightarrow \overline{\mathbb R}$ vera mælanlegt fall. Stærðin
+
+$$
+\text{ess}\sup f := \inf\{t\in\overline{\mathbb R} | f\leq t \quad \text{næstum alls staðar}\}
+$$
+
+kallast **raunverulegt efra mark** fallsins $f$ og talan
+
+$$
+\text{ess}\inf f := \inf\{t\in\overline{\mathbb R} | f\geq t \quad \text{næstum alls staðar}\}
+$$
+
+kallast **raunverulegt neðra mark** fallsins $f$.
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og $f,g:\Omega\rightarrow\overline{\mathbb R}$ vera mælanleg föll.
+
+*(i)* Ef $f$ og $g$ taka gildi sín í $(-\infty, \infty]$, þá gildir
+
+$$
+\text{ess}\sup(f+g) \leq \text{ess}\sup f + \text{ess}\sup g.
+$$
+
+*(ii)* Ef $f$ og $g$ taka gildi sín í $[-\infty, \infty)$, þá gildir
+
+$$
+\text{ess}\inf f + \text{ess}\inf g \leq \text{ess}\inf(f+g).
+$$
+
+***
+
+**Sönnun.**
+
+***
+
+# Vikublað 5 {-}

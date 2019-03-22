@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>18 Heildun með stikabreytu | Mál- og tegurfræði</title>
+  <meta name="description" content="Glósur mínar úr áfanganum kenndum í Háskóla Íslands">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="18 Heildun með stikabreytu | Mál- og tegurfræði" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Glósur mínar úr áfanganum kenndum í Háskóla Íslands" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="18 Heildun með stikabreytu | Mál- og tegurfræði" />
+  
+  <meta name="twitter:description" content="Glósur mínar úr áfanganum kenndum í Háskóla Íslands" />
+  
+
+<meta name="author" content="Brynjólfur Gauti Jónsson">
+
+
+<meta name="date" content="2019-03-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html">
+<link rel="next" href="vikubla-8.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Mál- og Tegurfræði</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Kennsluáætlun</a></li>
+<li class="chapter" data-level="1" data-path="orlitil-mengjafri.html"><a href="orlitil-mengjafri.html"><i class="fa fa-check"></i><b>1</b> Örlítil mengjafræði</a><ul>
+<li class="chapter" data-level="1.1" data-path="orlitil-mengjafri.html"><a href="orlitil-mengjafri.html#skilgreining"><i class="fa fa-check"></i><b>1.1</b> Skilgreining</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="aukna-rauntalnalinan.html"><a href="aukna-rauntalnalinan.html"><i class="fa fa-check"></i><b>2</b> Aukna rauntalnalínan</a><ul>
+<li class="chapter" data-level="2.1" data-path="aukna-rauntalnalinan.html"><a href="aukna-rauntalnalinan.html#efra--og-nera-markgildi-runu"><i class="fa fa-check"></i><b>2.1</b> Efra- og neðra markgildi runu</a></li>
+<li class="chapter" data-level="2.2" data-path="aukna-rauntalnalinan.html"><a href="aukna-rauntalnalinan.html#setning"><i class="fa fa-check"></i><b>2.2</b> Setning</a></li>
+<li class="chapter" data-level="2.3" data-path="aukna-rauntalnalinan.html"><a href="aukna-rauntalnalinan.html#setning-1"><i class="fa fa-check"></i><b>2.3</b> Setning</a></li>
+<li class="chapter" data-level="2.4" data-path="aukna-rauntalnalinan.html"><a href="aukna-rauntalnalinan.html#setning-2"><i class="fa fa-check"></i><b>2.4</b> Setning</a></li>
+<li class="chapter" data-level="2.5" data-path="aukna-rauntalnalinan.html"><a href="aukna-rauntalnalinan.html#setning-3"><i class="fa fa-check"></i><b>2.5</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html"><i class="fa fa-check"></i><b>3</b> Nokkur atriði varnandi raðir</a><ul>
+<li class="chapter" data-level="3.1" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html#setning-4"><i class="fa fa-check"></i><b>3.1</b> Setning</a></li>
+<li class="chapter" data-level="3.2" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html#setning-5"><i class="fa fa-check"></i><b>3.2</b> Setning</a></li>
+<li class="chapter" data-level="3.3" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html#umrounarsetning-riemanns"><i class="fa fa-check"></i><b>3.3</b> Umröðunarsetning Riemanns</a></li>
+<li class="chapter" data-level="3.4" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html#fing"><i class="fa fa-check"></i><b>3.4</b> Æfing</a></li>
+<li class="chapter" data-level="3.5" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html#setning-6"><i class="fa fa-check"></i><b>3.5</b> Setning</a></li>
+<li class="chapter" data-level="3.6" data-path="nokkur-atrii-varnandi-rair.html"><a href="nokkur-atrii-varnandi-rair.html#setning-7"><i class="fa fa-check"></i><b>3.6</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html"><i class="fa fa-check"></i>Vikublað 1</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-1"><i class="fa fa-check"></i>Dæmi 1</a></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-2"><i class="fa fa-check"></i>Dæmi 2</a></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-3"><i class="fa fa-check"></i>Dæmi 3</a></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-4"><i class="fa fa-check"></i>Dæmi 4</a></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-5"><i class="fa fa-check"></i>Dæmi 5</a></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-6"><i class="fa fa-check"></i>Dæmi 6</a></li>
+<li class="chapter" data-level="" data-path="vikubla-1.html"><a href="vikubla-1.html#dmi-7"><i class="fa fa-check"></i>Dæmi 7</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html"><i class="fa fa-check"></i><b>4</b> Jordan-mælanleg mengi</a><ul>
+<li class="chapter" data-level="4.1" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#setning-8"><i class="fa fa-check"></i><b>4.1</b> Setning</a></li>
+<li class="chapter" data-level="" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#setning-3.1.2"><i class="fa fa-check"></i>Setning 3.1.2</a></li>
+<li class="chapter" data-level="4.2" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#setning-9"><i class="fa fa-check"></i><b>4.2</b> Setning</a></li>
+<li class="chapter" data-level="4.3" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#skilgreining-1"><i class="fa fa-check"></i><b>4.3</b> Skilgreining</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#athugasemdir"><i class="fa fa-check"></i><b>4.3.1</b> Athugasemdir</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#setning-10"><i class="fa fa-check"></i><b>4.4</b> Setning</a></li>
+<li class="chapter" data-level="4.5" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#skilgreining-2"><i class="fa fa-check"></i><b>4.5</b> Skilgreining</a></li>
+<li class="chapter" data-level="4.6" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#setning-11"><i class="fa fa-check"></i><b>4.6</b> Setning</a></li>
+<li class="chapter" data-level="4.7" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#setning-12"><i class="fa fa-check"></i><b>4.7</b> Setning</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="jordan-mlanleg-mengi.html"><a href="jordan-mlanleg-mengi.html#athugasemd"><i class="fa fa-check"></i><b>4.7.1</b> Athugasemd</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="troppufoll-og-heildi-eirra.html"><a href="troppufoll-og-heildi-eirra.html"><i class="fa fa-check"></i><b>5</b> Tröppuföll og heildi þeirra</a><ul>
+<li class="chapter" data-level="5.1" data-path="troppufoll-og-heildi-eirra.html"><a href="troppufoll-og-heildi-eirra.html#setning-13"><i class="fa fa-check"></i><b>5.1</b> Setning</a></li>
+<li class="chapter" data-level="5.2" data-path="troppufoll-og-heildi-eirra.html"><a href="troppufoll-og-heildi-eirra.html#setning-14"><i class="fa fa-check"></i><b>5.2</b> Setning</a></li>
+<li class="chapter" data-level="5.3" data-path="troppufoll-og-heildi-eirra.html"><a href="troppufoll-og-heildi-eirra.html#setning-15"><i class="fa fa-check"></i><b>5.3</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="riemann-heildi-darboux-utgafan.html"><a href="riemann-heildi-darboux-utgafan.html"><i class="fa fa-check"></i><b>6</b> Riemann-heildi (Darboux-útgáfan)</a><ul>
+<li class="chapter" data-level="6.1" data-path="riemann-heildi-darboux-utgafan.html"><a href="riemann-heildi-darboux-utgafan.html#skilgreining-3"><i class="fa fa-check"></i><b>6.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="6.2" data-path="riemann-heildi-darboux-utgafan.html"><a href="riemann-heildi-darboux-utgafan.html#skilgreining-4"><i class="fa fa-check"></i><b>6.2</b> Skilgreining</a></li>
+<li class="chapter" data-level="6.3" data-path="riemann-heildi-darboux-utgafan.html"><a href="riemann-heildi-darboux-utgafan.html#setning-16"><i class="fa fa-check"></i><b>6.3</b> Setning</a></li>
+<li class="chapter" data-level="6.4" data-path="riemann-heildi-darboux-utgafan.html"><a href="riemann-heildi-darboux-utgafan.html#setning-17"><i class="fa fa-check"></i><b>6.4</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html"><i class="fa fa-check"></i>Vikublað 2</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html#dmi-1-1"><i class="fa fa-check"></i>Dæmi 1</a></li>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html#dmi-2-1"><i class="fa fa-check"></i>Dæmi 2</a></li>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html#dmi-3-1"><i class="fa fa-check"></i>Dæmi 3</a></li>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html#dmi-4-1"><i class="fa fa-check"></i>Dæmi 4</a></li>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html#dmi-5-1"><i class="fa fa-check"></i>Dæmi 5</a></li>
+<li class="chapter" data-level="" data-path="vikubla-2.html"><a href="vikubla-2.html#dmi-6-1"><i class="fa fa-check"></i>Dæmi 6</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html"><i class="fa fa-check"></i><b>7</b> Lebesgue-utanmálið</a><ul>
+<li class="chapter" data-level="7.1" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#skilgreining-5"><i class="fa fa-check"></i><b>7.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="7.2" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#setning-18"><i class="fa fa-check"></i><b>7.2</b> Setning</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#setning-19"><i class="fa fa-check"></i><b>7.2.1</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#setning-20"><i class="fa fa-check"></i><b>7.3</b> Setning</a></li>
+<li class="chapter" data-level="7.4" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#setning-21"><i class="fa fa-check"></i><b>7.4</b> Setning</a></li>
+<li class="chapter" data-level="7.5" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#setning-22"><i class="fa fa-check"></i><b>7.5</b> Setning</a></li>
+<li class="chapter" data-level="7.6" data-path="lebesgue-utanmali.html"><a href="lebesgue-utanmali.html#setning-23"><i class="fa fa-check"></i><b>7.6</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lebesgue-mlanleg-mengi-og-lebesgue-mali.html"><a href="lebesgue-mlanleg-mengi-og-lebesgue-mali.html"><i class="fa fa-check"></i><b>8</b> Lebesgue-mælanleg mengi og Lebesgue-málið</a><ul>
+<li class="chapter" data-level="8.1" data-path="lebesgue-mlanleg-mengi-og-lebesgue-mali.html"><a href="lebesgue-mlanleg-mengi-og-lebesgue-mali.html#skilgreining-6"><i class="fa fa-check"></i><b>8.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="8.2" data-path="lebesgue-mlanleg-mengi-og-lebesgue-mali.html"><a href="lebesgue-mlanleg-mengi-og-lebesgue-mali.html#setning-24"><i class="fa fa-check"></i><b>8.2</b> Setning</a></li>
+<li class="chapter" data-level="8.3" data-path="lebesgue-mlanleg-mengi-og-lebesgue-mali.html"><a href="lebesgue-mlanleg-mengi-og-lebesgue-mali.html#setning-25"><i class="fa fa-check"></i><b>8.3</b> Setning</a></li>
+<li class="chapter" data-level="8.4" data-path="lebesgue-mlanleg-mengi-og-lebesgue-mali.html"><a href="lebesgue-mlanleg-mengi-og-lebesgue-mali.html#setning-26"><i class="fa fa-check"></i><b>8.4</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html"><i class="fa fa-check"></i>Vikublað 3</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-1-2"><i class="fa fa-check"></i>Dæmi 1</a></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-2-2"><i class="fa fa-check"></i>Dæmi 2</a></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-3-2"><i class="fa fa-check"></i>Dæmi 3</a></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-4-2"><i class="fa fa-check"></i>Dæmi 4</a></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-5-2"><i class="fa fa-check"></i>Dæmi 5</a></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-6-2"><i class="fa fa-check"></i>Dæmi 6</a></li>
+<li class="chapter" data-level="" data-path="vikubla-3.html"><a href="vikubla-3.html#dmi-7-1"><i class="fa fa-check"></i>Dæmi 7</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="mlanleg-rum-og-malrum.html"><a href="mlanleg-rum-og-malrum.html"><i class="fa fa-check"></i><b>9</b> Mælanleg rúm og málrúm</a><ul>
+<li class="chapter" data-level="9.1" data-path="mlanleg-rum-og-malrum.html"><a href="mlanleg-rum-og-malrum.html#skilgreining-7"><i class="fa fa-check"></i><b>9.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="9.2" data-path="mlanleg-rum-og-malrum.html"><a href="mlanleg-rum-og-malrum.html#skilgreining-8"><i class="fa fa-check"></i><b>9.2</b> Skilgreining</a></li>
+<li class="chapter" data-level="9.3" data-path="mlanleg-rum-og-malrum.html"><a href="mlanleg-rum-og-malrum.html#setning-27"><i class="fa fa-check"></i><b>9.3</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html"><i class="fa fa-check"></i><b>10</b> Fullkomin málrúm</a><ul>
+<li class="chapter" data-level="10.1" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#skilgreining-9"><i class="fa fa-check"></i><b>10.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="10.2" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#setning-28"><i class="fa fa-check"></i><b>10.2</b> Setning</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#athugasemd-1"><i class="fa fa-check"></i><b>10.2.1</b> Athugasemd</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#setning-29"><i class="fa fa-check"></i><b>10.3</b> Setning</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#athugasemd-2"><i class="fa fa-check"></i><b>10.3.1</b> Athugasemd</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#setning-30"><i class="fa fa-check"></i><b>10.4</b> Setning</a></li>
+<li class="chapter" data-level="10.5" data-path="fullkomin-malrum.html"><a href="fullkomin-malrum.html#setning-31"><i class="fa fa-check"></i><b>10.5</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-4.html"><a href="vikubla-4.html"><i class="fa fa-check"></i>Vikublað 4</a></li>
+<li class="chapter" data-level="11" data-path="likindamal.html"><a href="likindamal.html"><i class="fa fa-check"></i><b>11</b> Líkindamál</a><ul>
+<li class="chapter" data-level="11.1" data-path="likindamal.html"><a href="likindamal.html#skilgreining-10"><i class="fa fa-check"></i><b>11.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="11.2" data-path="likindamal.html"><a href="likindamal.html#skilgreining-11"><i class="fa fa-check"></i><b>11.2</b> Skilgreining</a></li>
+<li class="chapter" data-level="11.3" data-path="likindamal.html"><a href="likindamal.html#skilgreining-12"><i class="fa fa-check"></i><b>11.3</b> Skilgreining</a></li>
+<li class="chapter" data-level="11.4" data-path="likindamal.html"><a href="likindamal.html#skilgreining-13"><i class="fa fa-check"></i><b>11.4</b> Skilgreining</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html"><i class="fa fa-check"></i><b>12</b> Mælanleg föll</a><ul>
+<li class="chapter" data-level="12.1" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#malvenja"><i class="fa fa-check"></i><b>12.1</b> Málvenja</a></li>
+<li class="chapter" data-level="12.2" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#skilgreining-14"><i class="fa fa-check"></i><b>12.2</b> Skilgreining</a></li>
+<li class="chapter" data-level="12.3" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-32"><i class="fa fa-check"></i><b>12.3</b> Setning</a></li>
+<li class="chapter" data-level="12.4" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-33"><i class="fa fa-check"></i><b>12.4</b> Setning</a></li>
+<li class="chapter" data-level="12.5" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#athugasemd-3"><i class="fa fa-check"></i><b>12.5</b> Athugasemd</a></li>
+<li class="chapter" data-level="12.6" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-34"><i class="fa fa-check"></i><b>12.6</b> Setning</a></li>
+<li class="chapter" data-level="12.7" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-35"><i class="fa fa-check"></i><b>12.7</b> Setning</a></li>
+<li class="chapter" data-level="12.8" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-36"><i class="fa fa-check"></i><b>12.8</b> Setning</a></li>
+<li class="chapter" data-level="12.9" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-37"><i class="fa fa-check"></i><b>12.9</b> Setning</a></li>
+<li class="chapter" data-level="12.10" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-38"><i class="fa fa-check"></i><b>12.10</b> Setning</a></li>
+<li class="chapter" data-level="12.11" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-39"><i class="fa fa-check"></i><b>12.11</b> Setning</a></li>
+<li class="chapter" data-level="12.12" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#skilgreining-15"><i class="fa fa-check"></i><b>12.12</b> Skilgreining</a></li>
+<li class="chapter" data-level="12.13" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-40"><i class="fa fa-check"></i><b>12.13</b> Setning</a></li>
+<li class="chapter" data-level="12.14" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#skilgreining-16"><i class="fa fa-check"></i><b>12.14</b> Skilgreining</a></li>
+<li class="chapter" data-level="12.15" data-path="mlanleg-foll.html"><a href="mlanleg-foll.html#setning-41"><i class="fa fa-check"></i><b>12.15</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-5.html"><a href="vikubla-5.html"><i class="fa fa-check"></i>Vikublað 5</a></li>
+<li class="chapter" data-level="13" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html"><i class="fa fa-check"></i><b>13</b> Slembibreytur á líkindarúmum</a><ul>
+<li class="chapter" data-level="13.1" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#skilgreining-17"><i class="fa fa-check"></i><b>13.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="13.2" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#setning-42"><i class="fa fa-check"></i><b>13.2</b> Setning</a></li>
+<li class="chapter" data-level="13.3" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#skilgreining-18"><i class="fa fa-check"></i><b>13.3</b> Skilgreining</a></li>
+<li class="chapter" data-level="13.4" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#skilgreining-19"><i class="fa fa-check"></i><b>13.4</b> Skilgreining</a></li>
+<li class="chapter" data-level="13.5" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#skilgreining-20"><i class="fa fa-check"></i><b>13.5</b> Skilgreining</a></li>
+<li class="chapter" data-level="13.6" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#fing-1"><i class="fa fa-check"></i><b>13.6</b> Æfing</a></li>
+<li class="chapter" data-level="13.7" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#setning-43"><i class="fa fa-check"></i><b>13.7</b> Setning</a></li>
+<li class="chapter" data-level="13.8" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#setning-44"><i class="fa fa-check"></i><b>13.8</b> Setning</a></li>
+<li class="chapter" data-level="13.9" data-path="slembibreytur-a-likindarumum.html"><a href="slembibreytur-a-likindarumum.html#setning-45"><i class="fa fa-check"></i><b>13.9</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html"><i class="fa fa-check"></i><b>14</b> Heildun jákvæðra falla</a><ul>
+<li class="chapter" data-level="14.1" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#skilgreining-21"><i class="fa fa-check"></i><b>14.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="14.2" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#setning-46"><i class="fa fa-check"></i><b>14.2</b> Setning</a></li>
+<li class="chapter" data-level="14.3" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#setning-um-einhalla-samleitni-lebesgue"><i class="fa fa-check"></i><b>14.3</b> Setning [Um einhalla samleitni] (Lebesgue)</a></li>
+<li class="chapter" data-level="14.4" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#setning-47"><i class="fa fa-check"></i><b>14.4</b> Setning</a></li>
+<li class="chapter" data-level="14.5" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#setning-fatou"><i class="fa fa-check"></i><b>14.5</b> Setning [Fatou]</a></li>
+<li class="chapter" data-level="14.6" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#setning-48"><i class="fa fa-check"></i><b>14.6</b> Setning</a></li>
+<li class="chapter" data-level="14.7" data-path="heildun-jakvra-falla.html"><a href="heildun-jakvra-falla.html#setning-49"><i class="fa fa-check"></i><b>14.7</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html"><i class="fa fa-check"></i>Vikublað 6</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-1-3"><i class="fa fa-check"></i>Dæmi 1</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-2-3"><i class="fa fa-check"></i>Dæmi 2</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-3-3"><i class="fa fa-check"></i>Dæmi 3</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-4-3"><i class="fa fa-check"></i>Dæmi 4</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-5-3"><i class="fa fa-check"></i>Dæmi 5</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-6-3"><i class="fa fa-check"></i>Dæmi 6</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-7-2"><i class="fa fa-check"></i>Dæmi 7</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-8"><i class="fa fa-check"></i>Dæmi 8</a></li>
+<li class="chapter" data-level="" data-path="vikubla-6.html"><a href="vikubla-6.html#dmi-9"><i class="fa fa-check"></i>Dæmi 9</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html"><i class="fa fa-check"></i><b>15</b> Heildanleg föll</a><ul>
+<li class="chapter" data-level="15.1" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#skilgreining-22"><i class="fa fa-check"></i><b>15.1</b> Skilgreining</a></li>
+<li class="chapter" data-level="15.2" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#setning-50"><i class="fa fa-check"></i><b>15.2</b> Setning</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#athugasemd-4"><i class="fa fa-check"></i><b>15.2.1</b> Athugasemd</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#setning-51"><i class="fa fa-check"></i><b>15.3</b> Setning</a></li>
+<li class="chapter" data-level="15.4" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#setning-52"><i class="fa fa-check"></i><b>15.4</b> Setning</a></li>
+<li class="chapter" data-level="15.5" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#setningin-um-yfirgnfa-samleitni"><i class="fa fa-check"></i><b>15.5</b> Setningin um yfirgnæfða samleitni</a></li>
+<li class="chapter" data-level="15.6" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#setning-53"><i class="fa fa-check"></i><b>15.6</b> Setning</a></li>
+<li class="chapter" data-level="15.7" data-path="heildanleg-foll.html"><a href="heildanleg-foll.html#setning-beppo-levi"><i class="fa fa-check"></i><b>15.7</b> Setning [Beppo Levi]</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html"><i class="fa fa-check"></i>Vikublað 7</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-1-4"><i class="fa fa-check"></i>Dæmi 1</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-2-4"><i class="fa fa-check"></i>Dæmi 2</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#skilgreining-23"><i class="fa fa-check"></i>Skilgreining</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-3-4"><i class="fa fa-check"></i>Dæmi 3</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-4-4"><i class="fa fa-check"></i>Dæmi 4</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-5-4"><i class="fa fa-check"></i>Dæmi 5</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-6-4"><i class="fa fa-check"></i>Dæmi 6</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-7-3"><i class="fa fa-check"></i>Dæmi 7</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-8-1"><i class="fa fa-check"></i>Dæmi 8</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-9-1"><i class="fa fa-check"></i>Dæmi 9</a></li>
+<li class="chapter" data-level="" data-path="vikubla-7.html"><a href="vikubla-7.html#dmi-10"><i class="fa fa-check"></i>Dæmi 10</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="lebesgue-heildi-og-riemann-heildi.html"><a href="lebesgue-heildi-og-riemann-heildi.html"><i class="fa fa-check"></i><b>16</b> Lebesgue-heildi og Riemann-heildi</a><ul>
+<li class="chapter" data-level="16.1" data-path="lebesgue-heildi-og-riemann-heildi.html"><a href="lebesgue-heildi-og-riemann-heildi.html#dmi-varu"><i class="fa fa-check"></i><b>16.1</b> Dæmi (Varúð!)</a></li>
+<li class="chapter" data-level="16.2" data-path="lebesgue-heildi-og-riemann-heildi.html"><a href="lebesgue-heildi-og-riemann-heildi.html#setning-54"><i class="fa fa-check"></i><b>16.2</b> Setning</a></li>
+<li class="chapter" data-level="16.3" data-path="lebesgue-heildi-og-riemann-heildi.html"><a href="lebesgue-heildi-og-riemann-heildi.html#setning-55"><i class="fa fa-check"></i><b>16.3</b> Setning</a></li>
+<li class="chapter" data-level="16.4" data-path="lebesgue-heildi-og-riemann-heildi.html"><a href="lebesgue-heildi-og-riemann-heildi.html#setning-56"><i class="fa fa-check"></i><b>16.4</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html"><a href="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html"><i class="fa fa-check"></i><b>17</b> Nálganir Lebesgue-heildanlegra falla á <span class="math inline">\(\mathbb R^d\)</span></a><ul>
+<li class="chapter" data-level="17.1" data-path="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html"><a href="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html#setning-57"><i class="fa fa-check"></i><b>17.1</b> Setning</a></li>
+<li class="chapter" data-level="17.2" data-path="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html"><a href="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html#setning-58"><i class="fa fa-check"></i><b>17.2</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="heildun-me-stikabreytu.html"><a href="heildun-me-stikabreytu.html"><i class="fa fa-check"></i><b>18</b> Heildun með stikabreytu</a><ul>
+<li class="chapter" data-level="18.1" data-path="heildun-me-stikabreytu.html"><a href="heildun-me-stikabreytu.html#setning-59"><i class="fa fa-check"></i><b>18.1</b> Setning</a></li>
+<li class="chapter" data-level="18.2" data-path="heildun-me-stikabreytu.html"><a href="heildun-me-stikabreytu.html#setning-60"><i class="fa fa-check"></i><b>18.2</b> Setning</a></li>
+<li class="chapter" data-level="18.3" data-path="heildun-me-stikabreytu.html"><a href="heildun-me-stikabreytu.html#setning-61"><i class="fa fa-check"></i><b>18.3</b> Setning</a></li>
+<li class="chapter" data-level="18.4" data-path="heildun-me-stikabreytu.html"><a href="heildun-me-stikabreytu.html#setning-62"><i class="fa fa-check"></i><b>18.4</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-8.html"><a href="vikubla-8.html"><i class="fa fa-check"></i>Vikublað 8</a></li>
+<li class="chapter" data-level="19" data-path="skrimslafri.html"><a href="skrimslafri.html"><i class="fa fa-check"></i><b>19</b> Skrímslafræði</a><ul>
+<li class="chapter" data-level="19.1" data-path="skrimslafri.html"><a href="skrimslafri.html#valfrumsendan"><i class="fa fa-check"></i><b>19.1</b> Valfrumsendan</a></li>
+<li class="chapter" data-level="19.2" data-path="skrimslafri.html"><a href="skrimslafri.html#setning-63"><i class="fa fa-check"></i><b>19.2</b> Setning</a></li>
+<li class="chapter" data-level="19.3" data-path="skrimslafri.html"><a href="skrimslafri.html#setning-64"><i class="fa fa-check"></i><b>19.3</b> Setning</a></li>
+<li class="chapter" data-level="19.4" data-path="skrimslafri.html"><a href="skrimslafri.html#setning-65"><i class="fa fa-check"></i><b>19.4</b> Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="lp-rum.html"><a href="lp-rum.html"><i class="fa fa-check"></i><b>20</b> <span class="math inline">\(L^p\)</span>-rúm</a><ul>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#upprifjun"><i class="fa fa-check"></i>Upprifjun</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-66"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#fing-2"><i class="fa fa-check"></i>Æfing</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-67"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#uppfrifjun"><i class="fa fa-check"></i>Uppfrifjun</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#fing-3"><i class="fa fa-check"></i>Æfing</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-ojafna-jensens"><i class="fa fa-check"></i>Setning (Ójafna Jensens)</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-ojofnur-holders-og-minkowski"><i class="fa fa-check"></i>Setning (Ójöfnur Hölders og Minkowski)</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#upprifjun-1"><i class="fa fa-check"></i>Upprifjun</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#skilgreining-24"><i class="fa fa-check"></i>Skilgreining</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-68"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-69"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#upprifjun-2"><i class="fa fa-check"></i>Upprifjun</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#fingar"><i class="fa fa-check"></i>Æfingar</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-70"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-71"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#athugasemd-5"><i class="fa fa-check"></i>Athugasemd</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-72"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-73"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="lp-rum.html"><a href="lp-rum.html#setning-74"><i class="fa fa-check"></i>Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html"><i class="fa fa-check"></i>Vikublað 9</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-1-5"><i class="fa fa-check"></i>Dæmi 1</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-2-5"><i class="fa fa-check"></i>Dæmi 2</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-3-5"><i class="fa fa-check"></i>Dæmi 3</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-4-5"><i class="fa fa-check"></i>Dæmi 4</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#upprifjun-ur-linulegri-algebru"><i class="fa fa-check"></i>Upprifjun úr línulegri algebru</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-5-5"><i class="fa fa-check"></i>Dæmi 5</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-6-5"><i class="fa fa-check"></i>Dæmi 6</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-7-4"><i class="fa fa-check"></i>Dæmi 7</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-8-2"><i class="fa fa-check"></i>Dæmi 8</a></li>
+<li class="chapter" data-level="" data-path="vikubla-9.html"><a href="vikubla-9.html#dmi-9-2"><i class="fa fa-check"></i>Dæmi 9</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="innfeldisrum.html"><a href="innfeldisrum.html"><i class="fa fa-check"></i><b>21</b> Innfeldisrúm</a><ul>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#upprifjun-3"><i class="fa fa-check"></i>Upprifjun</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-75"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-76"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-77"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-78"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#skilgreining-25"><i class="fa fa-check"></i>Skilgreining</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#fing-4"><i class="fa fa-check"></i>Æfing</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-79"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-80"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#skilgreining-26"><i class="fa fa-check"></i>Skilgreining</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#skilgreining-27"><i class="fa fa-check"></i>Skilgreining</a></li>
+<li class="chapter" data-level="" data-path="innfeldisrum.html"><a href="innfeldisrum.html#setning-81"><i class="fa fa-check"></i>Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html"><i class="fa fa-check"></i>Vikublað 10</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#dmi-1-skil"><i class="fa fa-check"></i>Dæmi 1 (Skil)</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#lausn-1"><i class="fa fa-check"></i>Lausn</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#dmi-2-skil"><i class="fa fa-check"></i>Dæmi 2 (Skil)</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#lausn-2"><i class="fa fa-check"></i>Lausn</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#dmi-3-6"><i class="fa fa-check"></i>Dæmi 3</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#lausn-3"><i class="fa fa-check"></i>Lausn</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#dmi-4-6"><i class="fa fa-check"></i>Dæmi 4</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#lausn-4"><i class="fa fa-check"></i>Lausn</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#dmi-5-skil"><i class="fa fa-check"></i>Dæmi 5 (Skil)</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#lausn-5"><i class="fa fa-check"></i>Lausn</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-10.html"><a href="vikubla-10.html#dmi-6-6"><i class="fa fa-check"></i>Dæmi 6</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html"><i class="fa fa-check"></i><b>22</b> Þverstaðlaðar fjölskyldur</a><ul>
+<li class="chapter" data-level="" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html#skilgreining-28"><i class="fa fa-check"></i>Skilgreining</a></li>
+<li class="chapter" data-level="" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html#setning-82"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html#setning-83"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html#setning-84"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html#setning-85"><i class="fa fa-check"></i>Setning</a></li>
+<li class="chapter" data-level="" data-path="verstalaar-fjolskyldur.html"><a href="verstalaar-fjolskyldur.html#setning-86"><i class="fa fa-check"></i>Setning</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vikubla-11.html"><a href="vikubla-11.html"><i class="fa fa-check"></i>Vikublað 11</a><ul>
+<li class="chapter" data-level="" data-path="vikubla-11.html"><a href="vikubla-11.html#dmi-1-skil-1"><i class="fa fa-check"></i>Dæmi 1 (Skil)</a></li>
+<li class="chapter" data-level="" data-path="vikubla-11.html"><a href="vikubla-11.html#dmi-2-skil-1"><i class="fa fa-check"></i>Dæmi 2 (Skil)</a></li>
+<li class="chapter" data-level="" data-path="vikubla-11.html"><a href="vikubla-11.html#dmi-5-skil-1"><i class="fa fa-check"></i>Dæmi 5 (Skil)</a></li>
+<li class="chapter" data-level="" data-path="vikubla-11.html"><a href="vikubla-11.html#dmi-8-skil"><i class="fa fa-check"></i>Dæmi 8 (Skil)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Glósað með bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mál- og tegurfræði</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="heildun-me-stikabreytu" class="section level1">
+<h1><span class="header-section-number">18</span> Heildun með stikabreytu</h1>
+<p>Í þessari grein táknar <span class="math inline">\((\Omega, \mathcal F, \mu)\)</span> málrúm og fall <span class="math inline">\(f:\Omega\times[a,b]\rightarrow\mathbb R\)</span>, sem hefur þann eiginleika að</p>
+<p><span class="math display">\[
+f(-,t):\Omega\rightarrow\mathbb R,\quad x\rightarrow f(x,t)
+\]</span></p>
+<p>er mælanlegt fyrir sérhvert <span class="math inline">\(t\)</span>.</p>
+<hr />
+<div id="setning-59" class="section level2">
+<h2><span class="header-section-number">18.1</span> Setning</h2>
+<p>Gerum ráð fyrir að <span class="math inline">\(f\)</span> fullnægi eftirfarandi skilyrðum</p>
+<ul>
+<li>Til er <span class="math inline">\(t_0\in[a,b]\)</span>, sem hefur þann eiginleika að</li>
+</ul>
+<p><span class="math display">\[
+f(x,t_0) = \lim_{t\rightarrow t_0}f(x,t) \quad \text{fyrir öll }x\in\Omega. 
+\]</span></p>
+<ul>
+<li>Til er <span class="math inline">\(g\in\mathcal L^1(\Omega,\mu)\)</span> sem uppfyllir</li>
+</ul>
+<p><span class="math display">\[
+|f(x,t)|\leq g(x) \quad \text{fyrir öll } (x,t)\in\Omega\times[a,b].
+\]</span></p>
+<p>Þá gildir <span class="math inline">\(\lim_{t\rightarrow t_0}\int_\Omega f(x,t)d\mu(x) = \int_\Omega f(x,t_0)d\mu(x)\)</span></p>
+<hr />
+<p><strong>Sönnun.</strong></p>
+<hr />
+</div>
+<div id="setning-60" class="section level2">
+<h2><span class="header-section-number">18.2</span> Setning</h2>
+<p>Gerum ráð fyrir að <span class="math inline">\(f\)</span> fullnægi eftirfarandi skilyrðum:</p>
+<ul>
+<li><p>Fyrir sérhvert <span class="math inline">\(x\)</span> úr <span class="math inline">\(\Omega\)</span> er fallið <span class="math inline">\(t\rightarrow f(x,t)\)</span> samfellt á <span class="math inline">\([a,b]\)</span>.</p></li>
+<li><p>Til er <span class="math inline">\(g\in\mathcal L^1(\Omega,\mu)\)</span> sem uppfyllir</p></li>
+</ul>
+<p><span class="math display">\[
+|f(x,t)|\leq g(x) \quad \text{fyrir öll } (x,t)\in\Omega\times[a,b]
+\]</span></p>
+<p>Þá gildir að fallið</p>
+<p><span class="math display">\[
+F:[a,b]\rightarrow\mathbb R,\quad t\rightarrow\int_\Omega f(x,t) d\mu(x)
+\]</span></p>
+<p>er samfellt.</p>
+<hr />
+<p><strong>Sönnun.</strong></p>
+<hr />
+</div>
+<div id="setning-61" class="section level2">
+<h2><span class="header-section-number">18.3</span> Setning</h2>
+<p>Gerum ráð fyrir að <span class="math inline">\(f\)</span> fullnægi eftirfarandi skilyrðum:</p>
+<ul>
+<li><p>Til er <span class="math inline">\(t_0\in[a,b]\)</span>, sem hefur þann eiginleika að <span class="math inline">\(f(-,t_0)\in\mathcal L^1(\Omega,\mu)\)</span>.</p></li>
+<li><p>Hlutafleiðan <span class="math inline">\(\frac{\partial f}{\partial t}\)</span> er til í sérhverjum punkti úr <span class="math inline">\(\Omega\times[a,b]\)</span>.</p></li>
+<li><p>Til er <span class="math inline">\(g\in\mathcal L^1(\Omega,\mu)\)</span> sem uppfyllir</p></li>
+</ul>
+<p><span class="math display">\[
+\left| \frac{\partial f}{\partial t}(x,t)  \right| \leq g(x) \quad\text{fyrir öll } (x,t)\in\Omega\times[a,b].
+\]</span></p>
+<p>Þá gildir að fallið <span class="math inline">\(F\)</span>, sem skilgreint er í <em>setningu 16.2.2</em>, er diffranlegt og</p>
+<p><span class="math display">\[
+\frac{dF}{dt}(t) = \int_\Omega \frac{\partial f}{\partial t}(x,t)d\mu(x).
+\]</span></p>
+<hr />
+<p><strong>Sönnun.</strong></p>
+<hr />
+</div>
+<div id="setning-62" class="section level2">
+<h2><span class="header-section-number">18.4</span> Setning</h2>
+<p>Gerum ráð fyrir að <span class="math inline">\(f\)</span> fullnægi eftirfarandi skilyrðum:</p>
+<ul>
+<li><p>Fyrir sérhvert <span class="math inline">\(x\)</span> úr <span class="math inline">\(\Omega\)</span> er fallið <span class="math inline">\(t\rightarrow f(x,t)\)</span> samfellt á <span class="math inline">\([a,b]\)</span>.</p></li>
+<li><p>Til er <span class="math inline">\(g\in\mathcal L^2(\Omega,\mu)\)</span> sem uppfyllir</p></li>
+</ul>
+<p><span class="math display">\[
+|f(x,t)|\leq g(x) \quad \text{fyrir öll }(x,t)\in\Omega\times[a,b].
+\]</span></p>
+<p>Þá gildir</p>
+<p><span class="math display">\[
+\int_a^b\left[\int_\Omega f(x,t)d\mu(x)\right]dt = \int_\Omega\left[\int_a^b f(x,t)dt\right]d\mu(x).
+\]</span></p>
+<hr />
+<p><strong>Sönnun.</strong></p>
+<hr />
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nalganir-lebesgue-heildanlegra-falla-a-mathbb-rd.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vikubla-8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Glósur_MogT.pdf", "Glósur_MogT.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

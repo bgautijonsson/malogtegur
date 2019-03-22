@@ -1,0 +1,154 @@
+# Mælanleg rúm og málrúm
+
+## Skilgreining
+
+Látum $\Omega$ vera mengi og $\mathcal F$ vera safn hlutmengja í $\Omega$. Þá er sagt að $\mathcal F$ sé $\sigma$**-algebra** ef eftirfarandi skilyrði eru uppfyllt:
+
+1. $\Omega \in \mathcal F$.
+
+2. Ef $E\in \mathcal F$ þá $E^c \in \mathcal F$.
+
+3. Ef $(E_n)_{n \geq 1}$ er runa af mengjum í $\mathcal F$, þá er sammengið $\bigcup_{n=1}^\infty E_n$ einnig í $\mathcal F$.
+
+Röðuð tvennd $(\Omega, \mathcal F)$ þar sem $\Omega$ er mengi og $\mathcal F$ er $\sigma$-algebra af hlutmengjum í $\Omega$ kallast **mælanlegt rúm**.
+
+***
+
+## Skilgreining
+
+Látum $(\Omega, \mathcal F)$ vera mælanlegt rúm. Fall $\mu: \mathcal F \rightarrow [0, \infty]$ kallast **mál** (á $\mathcal F$) ef það hefur eftirfarandi eiginleika:
+
+1. $\mu(\emptyset) = 0$.
+
+2. Ef $(E_n)_{n\geq 1}$ er runa af innbyrðist sundurlægum mengjum úr $\mathcal F$ þá er
+
+$$
+\mu\left(\bigcup_{n=1}^\infty E_n \right) = \sum_{n=1}^\infty\mu(E_n)
+$$
+
+Röðuð þrennd $(\Omega, \mathcal F, \mu)$, þar sem $(\Omega, \mathcal F)$ er mælanlegt rúm og $\mu$ er mál á $\mathcal F$ kallast **málrúm**.
+
+***
+
+Látum $\mathcal M$ tákna safn allra Lebesgue-mælanlegra mengja í $\mathbb R^d$. *Setning 6.2.3* segir okkur meðal annars að $\mathcal M$ sé $\sigma$-algebra (á $\mathbb R^d$) og $(\mathbb R^d, \mathcal M)$ er því mælanlegt rúm.
+
+Þar eð $m(\emptyset) = 0$, þá gildir samkvæmt *setningu 7.1.1* að fallið
+
+$$
+m: \mathcal M \rightarrow \overline{\mathbb R}, \quad E \rightarrow m(E)
+$$
+
+er mál og þar með er $(\mathbb R^d, \mathcal M, m)$ málrúm. Málið $m$ er kallað **Lebesgue-málið** á $\mathbb R^d$.
+
+***
+
+## Setning
+
+Gerum ráð fyrir að $(\Omega,\mathcal F, \mu)$ sé málrúm.
+
+1. Látum $A_1, \dots, A_n$ vera innbyrðis sundurlæg mengu úr $\mathcal F$. Þá gildir
+
+$$
+\mu(A_1 \cup \dots \cup A_n) = \mu(A_1) + \dots + \mu(A_n)
+$$
+
+2. Ef $A, B \in \mathcal F$ og $A \subseteq B$, þá gildir $\mu(A) \leq \mu(B)$.
+
+3. Látum $B_1 \subseteq B_2 \subseteq \dots$ vera vaxandi runu í $\mathcal F$. Þá gildir
+
+$$
+\lim_{n\rightarrow\infty}\mu(B_n) = \mu\left(\bigcup_{n=1}^\infty B_n\right).
+$$
+
+4. Látum $B_1 \supseteq B_2 \supseteq \dots$ vera minnkandi runu í $\mathcal F$ og gerum ennfremur ráð fyrir að $\mu(B_1) < \infty$. Þá gildir
+
+$$
+\lim_{n\rightarrow\infty}\mu(B_n) = \mu\left(\bigcap_{n=1}^\infty B_n \right).
+$$
+
+***
+
+**Sönnun.**
+
+***
+
+# Fullkomin málrúm
+
+## Skilgreining
+
+Málrúm $(\Omega, \mathcal F, \mu)$ er sagt **fullkomið** ef það fullnægir eftirfarandi skilyrði:
+
+* Fyrir sérhvert $A \in \mathcal F$ þannig að $\mu(A) = 0$ gildir að öll hlutmengi B í A tilheyra $\mathcal F$ (og þar með $\mu(B) = 0$).
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og látum $\mathcal G$ vera safn allra hlutmengja E í $\Omega$ sem hafa þann eiginleika að til eru A og B úr $\mathcal F$ sem uppfylla
+
+$$
+A \subseteq E \subseteq B \quad \text{og} \quad \mu(B\backslash A) = 0.
+$$
+
+Þá er $\mathcal G$ $\sigma$-algebra á $\Omega$.
+
+***
+
+### Athugasemd
+
+Við segjum að $\mathcal G$ sé $\mu$**-fullkomnun** $\sigma$-algebrunnar $\mathcal F$.
+
+***
+
+## Setning
+
+Látum $(\Omega, \mathcal F, \mu)$ vera málrúm og látum $\mathcal G$ vera $\mu$-fullkomnun $\sigma$-algebrunnar $\mathcal F$. Þá er til nákvæmlega eitt mál
+
+$$
+\mu_c: \mathcal G \rightarrow [0, \infty]
+$$
+
+sem framlengir málið $\mu$. Ennfremur gildir að málrúmið $(\Omega, \mathcal G, \mu_c)$ er fullkomið.
+
+***
+
+### Athugasemd
+
+Málið $\mu_c$ kallast **fullkomnun málsins** $\mu$ og málrúmið $(\Omega, \mathcal G, \mu_c)$ kallast **fullkomnun málrúmsins** $(\Omega, \mathcal F, \mu)$
+
+***
+
+Látum $\mathcal B$ tákna **Borel-algebruna** á $\mathbb R^d$, þ.e.a.s. $\sigma$-algebruna sem opnu mengin í $\mathbb R^d$ framleiða.
+
+***
+
+## Setning 
+
+$\mathcal M$ er $m$-fullkomnun $\mathcal B$.
+
+***
+
+## Setning 
+
+$\mathcal M$ er stærsta $\sigma$-algebra á $\mathbb R^d$, sem fullnægur tveimur skilyrðum:
+
+* $\mathcal B \subset \mathcal M$
+
+* Einskorðun $m^*$ við $\mathcal M$ er mál.
+
+***
+
+# Vikublað 4 {-}
+
+
+
+
+
+
+
+
+
+
+
+
+

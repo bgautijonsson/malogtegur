@@ -1,0 +1,189 @@
+```{r, echo = F, warning = F, message = F}
+library(tidyverse)
+library(cowplot)
+theme_set(theme_bw() + panel_border() + background_grid())
+```
+
+# Þverstaðlaðar fjölskyldur
+
+Í þessari grein táknar $H$ ávalt Hilbert-rúm.
+
+## Skilgreining {-}
+
+Fjölskylda $(u_\alpha)_{\alpha\in A}$ í $H$ er sögð **þverstöðluð**  ef um öll $\alpha$ og $\beta$ úr A gildir
+
+$$
+\langle u_\alpha, u_\beta\rangle = 
+\begin{cases}
+1, \text{ ef } \alpha = \beta \\
+0, \text{ ef } \alpha \neq \beta
+\end{cases}
+$$
+
+Hugtökin **þverstöðluð upptalning**, **þverstöðluð runa** og **þverstaðlað mengi** eru skilgreind á samsvarandi hátt.
+
+## Setning {-}
+
+Látum $u_1, \dots, u_k$ vera þverstaðlaða upptalningu í $H$ og $x = \sum_{j=1}^k c_ju_j$. Þá gildir
+
+1. $c_j = \langle x,u_j\rangle$ fyrir öll $j$ úr $\{1, \dots, k\}$
+
+2. $\Vert x\Vert^2 = \sum_{j=1}^k\vert c_j\vert^2$.
+
+***
+
+**Sönnun.**
+
+
+
+***
+
+## Setning {-}
+
+Þverstaðlaðar fjölskyldur í Hilbert-rúmum eru línulega óháðar.
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning {-}
+
+Látum $(V,\Vert\cdot\Vert)$ vera staðlað rúm af endanlegri vídd.
+
+1. Allar línulegar varpanir frá $V$ inn í staðlað rúm eru samfelldar.
+2. $V$ er fullkomið firðrúm.
+
+***
+
+**Sönnun.**
+
+
+
+***
+
+## Setning {-}
+
+Látum $u_1, \dots, u_k$ vera þverstaðlaða upptalningu í $H$. Látum $K$ vera (lokaða) hlutrúmið sem hún spannar og $P:H\rightarrow H$ tákna hornrétta ofanvarpið á $K$. Þá gildir um öll $x$ úr $H$:
+
+$$
+P(x) = \sum_{j=1}^k\langle x,u_j\rangle u_j.
+$$
+
+***
+
+**Sönnun.**
+
+
+***
+
+## Setning {-}
+
+Látum $(u_\alpha)_{\alpha\in A}$ vera þverstaðlaða fjölskyldu í $H$. Þá gildir um sérhvert endanlegt hlutmengi $I$ í $A$ og öll $X$ úr $H$:
+
+$$
+\sum_{\alpha\in I}\vert\langle x,u_\alpha\rangle\vert^2\leq\Vert x\Vert^2
+$$
+
+Ójafnan er yfirleitt kölluð **Bessel-ójafna**.
+
+***
+
+# Vikublað 11 {-}
+
+## Dæmi 1 (Skil) {-}
+
+Látum $(\Omega,\mathcal F, \mu)$ vera líkindarúm og $h:\Omega\rightarrow[0,\infty)$ vera heildanlegt fall. Setjum $A:=\int_\Omega hd\mu$.
+
+1. Sýnið að $\sqrt{1 + A^2} \leq \int_\Omega\sqrt{1 + h^2}d\mu\leq 1 + A$
+
+2. Skoðum nú sértilfellið þegar $\Omega$ er lokaða bilið $[0,1]$ með venjulega Lebesgue-málinu og gerum ennfremur ráð fyrir að $h = f'$ þar sem $f$ er samfellt diffranlegt fall á $[0,1]$. Túlkið ójöfnurnar í lið *1.* út frá fallriti fallsins $f$ og segið síðan til um hvenær jafnaðarmerki gildir í hvorri ójöfnu fyrir sig.
+
+***
+
+**Lausn.**
+
+
+
+***
+
+## Dæmi 2 (Skil) {-}
+
+Sýnið að fallið
+
+$$
+f:(0,\infty)\rightarrow\mathbb R, \quad x\rightarrow\frac{1}{\sqrt x + \vert\log x\vert}
+$$
+
+sé í $L^p((0,\infty))$ þá og því aðeins að $p>2$.
+
+***
+
+**Sönnun.**
+
+
+
+***
+
+## Dæmi 5 (Skil) {-}
+
+Látum $(f_n)_{n\geq1}$ vera runu af tvinngildum mælanlegum föllum á *takmörkuðu málrúmi* $(\Omega,\mathcal F,\mu)$ (þ.e.a.s. $\mu(\Omega)<\infty$) og gerum ráð fyrir að hún stefni (í sérhverjum punkti) á fall $f$.
+
+1. Sýnið að fyrir sérhvert $\varepsilon > 0$ sé til $E$ úr $\mathcal F$ sem uppfyllir eftirtalin skilyrði:
+
+* $\mu(\Omega\backslash E) < \varepsilon$
+* $f_n \rightarrow f$ í jöfnum mæli á $E$.
+
+*Ábending:* Setjið $S(n,k) := \bigcap_{j<n}\left\{x\in \Omega: \vert f(x) - f_j(x)\vert < \frac1k \right\}$ og sýnið að fyrir sérhvert $k$ gildi $\lim_{n\rightarrow}\mu(S(n,k)) = \mu(\Omega)$
+
+2. Sýnið með dæmi að niðurstaðan sé almennt ekki rétt fyrir ótakmörkuð málrúm.
+
+## Dæmi 8 (Skil) {-}
+
+Látum $\lambda$ vera málið á $(\mathbb N^*, \mathcal P(\mathbb N^*))$ sem ákvarðast af $\lambda(\{n\}) = \frac{1}{n^2}$ og setjum
+ 
+$$
+ f:\mathbb N^*\rightarrow\mathbb R, \quad n\rightarrow\sqrt n.
+$$
+
+Sýnið að $f\in\mathcal L^p(\mathbb N^*,\lambda)$ þá og því aðeins að $1\leq p< 2$.
+
+***
+
+**Lausn.**
+
+
+
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

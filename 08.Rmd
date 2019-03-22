@@ -1,0 +1,260 @@
+```{r, echo = F, warning = F, message = F}
+library(tidyverse)
+library(cowplot)
+theme_set(theme_bw() + panel_border() + background_grid())
+```
+
+# Lebesgue-heildi og Riemann-heildi
+
+## Dæmi (Varúð!)
+
+$$
+f:[0, 1] \rightarrow \mathbb R, 
+\begin{cases} 
+f(x) = 1, x\in\mathbb R\backslash\mathbb Q, \\ 
+0, x\in\mathbb Q
+\end{cases}
+$$
+
+$\mathbb Q\cap[0,1]$ er núllmengi og einskorðun $f$ við $[0,1]\backslash[0,1]\cap\mathbb Q$ er fastafallið 1. Hins vegar er fallið ekki Riemann-heildanlegt enda er það ósamfellt í öllum pkt. úr $[0,1]$.
+
+## Setning
+
+Látum $B$ vera lokaðan (takmarkaðan) kassa í $\mathbb R^d$. Takmarkað fall $f:B\rightarrow\mathbb R$ er Riemann-heildanlegt þá og því aðeins að það sé samfelst næstum alls staðar (þ.e.a.s. mengi þeirra punkta þar sem $f$ er ósamfellt hefur mál núll). Sé svo þá er $f$ Lebesgue-mælanlegt og Riemann-heildi þess er jafnt Lebesgue-heildinu.
+
+***
+
+**Sönnun.** Látum $f: B\rightarrow \mathbb R$ vera takmarkað fall og $E$ vera mengi allra ósamfellupunkta þess. Fyrir sérhvert $m$ látum við $B = C_1^m\cup\dots\cup C_{l_m}^m$ vera skiptingu á $B$ þ.a. skipting nr. $m+1$ sé fínni en skipting nr. $m$ og þ.a. $\text{diam}(C_j^m)\leq\frac1m$. Setjum $M_j^m:=\sup_{x\in C_j^m}f(x)$ og $m_j^m:= \inf_{x\in C_j^m}$. Setjum svo $t_n:= \sum_{j=1}^{l_m}M_j^m\mathbf1_{C_j^m}$ og $s_m := \sum_{j=1}^{l_m}m_j^m\mathbf1_{C_j^m}$. Þá fæst $s_1\leq s_2\leq \dots\leq f \leq \dots \leq t_2 \leq t_1$. Ljóst er að sérhvert tröppufallá B er Lebesgue-heildanlegt og Riemann-heildi þess er jafnt Lebesgue-heildinu. 
+
+Nú er $f$ takmarkað svo að föllin $s:=\lim_{m\rightarrow\infty} s_m$ og $t:=\lim_{m\rightarrow\infty}t_m$ eru í $\mathcal L^1(B,m)$ og $\int_B sdm = \lim_{m\rightarrow\infty}\int_B s_mdm$, $\int_Btdm = \lim_{n\rightarrow\infty}\int_B t_mdm$ skv setn um yfirgnæfða samleitni.
+
+Ennfremur gildir að $s\leq f\leq t$ og $t(x) = s(x)$ ef $\omicron(f,x)=0$. 
+
+* G.r.f. að $m(E) = 0$. Þá er $s(x) = f(x) =t(x)$ f.öll $x\in B\backslash E$ svo að $f$ er Lebesgue-mælanlegt skv. setn 11.1.2 vegna þess að $(\mathbb R^d, \mathcal M, m)$ er fullkomið málrúm. Þar eð $f$ er takmarrkað þá e rþað Lebesgue-heildanlegt og $\int_B sdm = \int_B fdm = \int_B tdm$, en það hefur í för með sér að $f$ er Riemann-heildanlegt og jafnframt að $\int_B fdm$ er Riemann-heildi $f$ yfir B.
+
+* Öfugt. G.r.f. að $f$ sé Riemann-heildanlegt og sýnum að $m(E) = 0$. Við getum valið skiptingarnar þannig að $\int_B sdm = \int_B tdm$ *(gildir reyndar sjálfkrafa)*. Skv. vikublaði 8 gildir að $E = \{x\in B | \omicron(f,x)>0\}$ og f. sérhv. $\varepsilon>0$ og $E_\varepsilon = \{x\in B | \omicron(f,x)\geq \varepsilon\}$ er lokað f.öll $\varepsilon > 0$. Þar eð $E = E_1\cup E_{\frac12} \cup\dots$ þá nægir að sýna að $m(E_{\frac1n}) = 0$ f.öll $m\in\mathbb N^*$. Látum n vera gefið og tökum $\varepsilon > 0$. Þá er til $k$ svo stórt að $\int_B t_kdm - \int_B s_kdm < \frac\varepsilon m$. Tökum eftir að $B\backslash\bigcup_{j=1}^{l_k}\text{int}(C_j^k)$ er núllmengi svo að $m(E_{\frac1m}) = m(E_{\frac1m}\cap(\bigcup_{j=1}^{l_k}\text{int}(C_j^k))$. En fyrir $x$ úr $\text{int}(C_j^m)$ gildir að $t_k(x) - s_k(x) \geq \omicron(f,x)$ svo við fáum:
+
+$$
+\frac1m m(E_{\frac1m}) = \int_{E_{\frac1m}}\frac1mdm = \int_{E_{\frac1m} = m(E_{\frac1m}\cap(\bigcup_{j=1}^{l_k}\text{int}(C_j^k)}\frac1mdm \leq \int_{E_{\frac1m} = m(E_{\frac1m}\cap(\bigcup_{j=1}^{l_k}\text{int}(C_j^k)}(t_k - s_k)dm \leq \int_B t_kdm - \int_B s_kdm < \frac\varepsilon m, \text{ og því } \\
+m(E_{\frac1m}) < \varepsilon.
+$$
+
+Þar sem $\varepsilon > 0$ má vera hversu lítið sem vera skal þá er $m(E_{\frac1m}) = 0$.
+
+***
+
+## Setning
+
+Óeiginlegt Riemann-heildi falls, sem tekur gildi sín í $[0,\infty)$, er samleitið ef og aðeins ef fallið er Lebesgue-heildanlegt og í því tilfelli er Lebesgue-heildið markgildi óeiginlega heildisins.
+
+***
+
+**Sönnun.** Látum $A\subseteq\mathbb R^d$ og $f:A\rightarrow[0,\infty[$. Óeiginlegt Riemann-heildi $f$ er samleitið ef til er vaxandi runa af Jordan-mælanlegum hlutmengjum *(yfirleitt af sérstakri gerð)* í A sem uppfylla  að $\bigcup A_m = A$ og $f|_{A_m}$ er Riemann-heildanlegt og $\lim \int_{A_m}f < \infty$. Við fáum því 
+
+$$
+\begin{aligned}
+\lim_{n\rightarrow\infty}\int_{A_m}f &= \lim_{n\rightarrow\infty}\int_{A_m}fdm \\
+&= \lim\int_{\mathbb R^d}f\cdot\mathbf1_{A_m}dm \\
+&=  \int_{\mathbb R^d}f\cdot\mathbf1_Adm \\
+&= \int_Afdm
+\end{aligned}
+$$
+
+Sér í lagi fáum við að samleitni Riemann-heildisins er óháð valinu á rununni $(A_m)_{m\geq1}$
+
+***
+
+## Setning
+
+Látum $f:[a,b]\rightarrow\mathbb R$ vera samfellt fall. Þá er $f$ Lebesgue-heildanlegt á $[a,b]$ og fallið
+
+$$
+F:[a,b]\rightarrow\mathbb R, \quad x\rightarrow\int_{[a,x]}fdm
+$$
+
+er diffranlegt og $F' = f$.
+
+***
+
+**Sönnun.**
+
+***
+
+# Nálganir Lebesgue-heildanlegra falla á $\mathbb R^d$
+
+## Setning
+
+Látum $f$ vera Lebesgue-heildanlegt fall á $\mathbb R^d$ og $\varepsilon > 0$. 
+
+*(i)* Til er kassi $A$ í $\mathbb R^d$ og tröppufall $t:A\rightarrow\mathbb R$, sem uppfyllir
+
+$$
+\int_{\mathbb R^d}|f-t|dm < \varepsilon
+$$
+
+*(Hér hefur fallið $t$ verið framlengt með núlli yfir á allt $\mathbb R^d$).*
+
+*(ii)* Til er samfellt fall $g:\mathbb R^d\rightarrow\mathbb R$ og $d$-kassi $C$, sem hafa eftirfarandi eiginleika
+
+$$
+\int_{\mathbb R^d}|f-g|dm<\varepsilon \quad \text{og}\quad g(x) = 0, \forall x\in \mathbb R^d\backslash C.
+$$
+
+***
+
+**Sönnun.**
+
+***
+
+## Setning
+
+Látum $f$ vera í $\mathcal L^1(\mathbb R,m)$ og setjum, fyrir sérhvert $k\in\mathbb N$,
+
+$$
+s_k:=\int_{-\infty}^\infty f(x) sin(kx)dx \quad \text{og} \quad c_k:=\int_{-\infty}^\infty f(x)cos(kx)dx.
+$$
+
+Þá gildir $\lim_{k\rightarrow\infty}s_k = \lim_{k\rightarrow\infty}c_k=0$.
+
+***
+
+**Sönnun.**
+
+***
+
+# Heildun með stikabreytu
+
+Í þessari grein táknar $(\Omega, \mathcal F, \mu)$ málrúm og fall $f:\Omega\times[a,b]\rightarrow\mathbb R$, sem hefur þann eiginleika að
+
+$$
+f(-,t):\Omega\rightarrow\mathbb R,\quad x\rightarrow f(x,t)
+$$
+
+er mælanlegt fyrir sérhvert $t$.
+
+***
+
+## Setning
+
+Gerum ráð fyrir að $f$ fullnægi eftirfarandi skilyrðum
+
+* Til er $t_0\in[a,b]$, sem hefur þann eiginleika að
+
+$$
+f(x,t_0) = \lim_{t\rightarrow t_0}f(x,t) \quad \text{fyrir öll }x\in\Omega. 
+$$
+
+* Til er $g\in\mathcal L^1(\Omega,\mu)$ sem uppfyllir
+
+$$
+|f(x,t)|\leq g(x) \quad \text{fyrir öll } (x,t)\in\Omega\times[a,b].
+$$
+
+Þá gildir $\lim_{t\rightarrow t_0}\int_\Omega f(x,t)d\mu(x) = \int_\Omega f(x,t_0)d\mu(x)$
+
+***
+
+**Sönnun.**
+
+
+
+***
+
+
+## Setning
+
+Gerum ráð fyrir að $f$ fullnægi eftirfarandi skilyrðum:
+
+* Fyrir sérhvert $x$ úr $\Omega$ er fallið $t\rightarrow f(x,t)$ samfellt á $[a,b]$.
+
+* Til er $g\in\mathcal L^1(\Omega,\mu)$ sem uppfyllir
+
+$$
+|f(x,t)|\leq g(x) \quad \text{fyrir öll } (x,t)\in\Omega\times[a,b]
+$$
+
+Þá gildir að fallið
+
+$$
+F:[a,b]\rightarrow\mathbb R,\quad t\rightarrow\int_\Omega f(x,t) d\mu(x)
+$$
+
+er samfellt.
+
+***
+
+**Sönnun.**
+
+
+
+***
+
+## Setning
+
+Gerum ráð fyrir að $f$ fullnægi eftirfarandi skilyrðum:
+
+* Til er $t_0\in[a,b]$, sem hefur þann eiginleika að $f(-,t_0)\in\mathcal L^1(\Omega,\mu)$.
+
+* Hlutafleiðan $\frac{\partial f}{\partial t}$ er til í sérhverjum punkti úr $\Omega\times[a,b]$.
+
+* Til er $g\in\mathcal L^1(\Omega,\mu)$ sem uppfyllir
+
+$$
+\left| \frac{\partial f}{\partial t}(x,t)  \right| \leq g(x) \quad\text{fyrir öll } (x,t)\in\Omega\times[a,b].
+$$
+
+Þá gildir að fallið $F$, sem skilgreint er í *setningu 16.2.2*, er diffranlegt og
+
+$$
+\frac{dF}{dt}(t) = \int_\Omega \frac{\partial f}{\partial t}(x,t)d\mu(x).
+$$
+
+***
+
+**Sönnun.**
+
+
+
+***
+
+## Setning
+
+Gerum ráð fyrir að $f$ fullnægi eftirfarandi skilyrðum:
+
+* Fyrir sérhvert $x$ úr $\Omega$ er fallið $t\rightarrow f(x,t)$ samfellt á $[a,b]$.
+
+* Til er $g\in\mathcal L^2(\Omega,\mu)$ sem uppfyllir
+
+$$
+|f(x,t)|\leq g(x) \quad \text{fyrir öll }(x,t)\in\Omega\times[a,b].
+$$
+
+Þá gildir
+
+$$
+\int_a^b\left[\int_\Omega f(x,t)d\mu(x)\right]dt = \int_\Omega\left[\int_a^b f(x,t)dt\right]d\mu(x).
+$$
+
+***
+
+**Sönnun.**
+
+
+***
+
+
+# Vikublað 8 {-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

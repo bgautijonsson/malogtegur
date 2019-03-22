@@ -1,0 +1,324 @@
+
+
+# Örlítil mengjafræði
+
+Gefum okkur að til grundvallar liggi *hæfilega stórt* almengi.
+
+## Skilgreining
+
+**Fjölskylda** af hlutmengjum í mengi $M$ er vörpun
+
+$$
+a: I\rightarrow \mathcal P(M).
+$$
+
+Við notum yfirleitt tákn af greðinni $A_i$ til þess að tákna gildi vörpunarinnar $a$ í $i$ og vörpunina $a$ táknum við þá $(A_i)_{i\in I}$.
+
+Við köllum $I$ **stikamengi** fjölskyldunnar.
+
+Mengið
+
+$$
+\bigcap_{i\in I}A_i := \{x\in M| x \in A_i \text{ fyrir öll } i\in I\}
+$$
+
+kallast **sniðmengi** fjölskyldunnar.
+
+Mengið 
+
+$$
+\bigcup_{i\in I}A_i := \{x\in M| x \in A_i \text{ fyrir eitthvert } i\in I\}
+$$
+
+kallast **sammengi** fjölskyldunnar.
+
+Fyrir hlutmengi $A$ í $M$ setjum við 
+
+$$
+A^c := M\backslash A := \{x \in M | x \notin A\}
+$$
+
+og köllum **fyllimengi** $A$ (í $M$).
+
+***
+
+Ef $B$ er líka hlutmengi í $M$, þá setjum við 
+
+$$
+B\backslash A := \{x \in B| x \notin A\} = B \cup A^c
+$$
+
+og hlutmengið
+
+$$
+A\Delta B := (A\backslash B) \cup (B\backslash A)
+$$
+
+köllum við **samhverfan mismun** hlutmengjanna $A$ og $B$.
+
+***
+
+Um sérhverja fjölskyldu $(A_i)_{i\in I}$ í mengi M gilda **reglur de Morgans**
+
+$$
+\big(\bigcup_{i\in I} A_i\big)^c = \bigcap_{i\in I}A_i^c \\
+\big(\bigcap_{i\in I} A_i\big)^c = \bigcup_{i\in I}A_i^c
+$$
+
+***
+
+**Kennifall** hlutmengis A í M er táknað $\mathbf 1_A: M \rightarrow \mathbb R$ og skilgreint með því að setja $\mathbf 1_A(x) := 1$ ef $x\in A$ og $\mathbf 1_A(x) = 0$ ef $x \notin A$.
+
+Fyrir hlutmengi A og B í M gilda reglurnar
+
+* $\mathbf 1_{A\cap B} = \mathbf 1_A \mathbf 1_B$
+
+* $\mathbf 1_{A\cup B} = \mathbf 1_A + \mathbf 1_B - \mathbf 1_A\mathbf 1_B$
+
+* $\mathbf 1_{A^c} = 1 - \mathbf 1_A$
+
+# Aukna rauntalnalínan 
+
+Við köllum mengið $\overline{\mathbb R} := \mathbb R \cup \{-\infty, \infty\} = [-\infty, \infty]$ **auknu rauntalnalínuna**. Við framlengjum röðuna á $\mathbb R$ yfir á $\overline{\mathbb R}$ með skilyrðinu
+
+$$
+-\infty < x < \infty \text{ fyrir öll x úr } \mathbb R
+$$
+
+og framlengjum venjulegu reikniaðgerðirnar á $\mathbb R$ yfir á $\overline{\mathbb R}$ með því að setja:
+
+* $a + \infty = \infty \text{ fyrir öll } a\in (-\infty, \infty]$
+
+* $a + (-\infty) = -\infty \text{ fyrir öll } a\in [-\infty, \infty)$
+
+* $a \cdot \infty = \infty \text{ og } a \cdot (-\infty) = -\infty \text{ fyrir öll } a\in (0, \infty]$
+
+* $a \cdot \infty = -\infty \text{ og } a \cdot (-\infty) = \infty \text{ fyrir öll } a\in [-\infty, 0)$
+
+***
+
+Látum A vera hlutmengi í $\overline{\mathbb R}$
+
+* Minnsta yfirstak mengisins A í $\overline{\mathbb R}$ kallast **efra mark** mengisins A og við táknum það $\sup A$.
+
+* Stærsta undirstak mengisins A í $\overline{\mathbb R}$ kallast **neðra mark** mengisins A og við táknum það $\inf A$.
+
+Ef $(x_n)_{n\geq 0}$ er runa í $\overline{\mathbb R}$ og $n_0 \in \mathbb N$, þá setjum við
+
+* $\sup_{n\geq n_0}x_n := \sup\{x_n | n \geq n_0\}$
+
+* $\inf_{n\geq n_0}x_n := \inf\{x_n | n \geq n_0\}$
+
+***
+
+Mengi A í $\overline{\mathbb R}$ er sagt **takmarkað að ofan [neðan]** ef $\sup A < \infty [\inf A > -\infty]$. Samsvarandi fyrir runur.
+
+## Efra- og neðra markgildi runu 
+
+Látum $(x_n)$ vera runu í $\overline{\mathbb R}$. Þá er runan $\big(\sup_{n\geq k}x_n\big)_k$ minnkandi og hefur því markgildi í $\overline{\mathbb R}$. Við setjum
+
+$$
+\limsup x_n := \lim_{k\rightarrow \infty}\sup_{n\geq k}x_n
+$$
+
+og köllum $\limsup x_n$ **efra markgildi** rununnar $(x_n)$.
+
+Með svipuðum rökum er unnt að skilgreina stakið
+
+$$
+\liminf x_n := \lim_{k\rightarrow \infty}\inf_{n\geq k}x_n.
+$$
+
+Það kallast **neðra markgildi** rununnar $(x_n)$.
+
+## Setning
+
+Látum $(x_n)$ vera runu í $\overline{\mathbb R}$ og E vera mengi allra staka úr $\overline{\mathbb R}$ sem eru markgildi einhverrar hlutrunu í $(x_n)$. Þá gildir
+
+$$
+\limsup x_n = \max E \quad \text{og} \quad \liminf x_n = \min E
+$$
+
+## Setning 
+
+Látum $(x_n)$ vera runu í $\overline{\mathbb R}$. Þá gilda eftirfarandi jöfnur og ójöfnur:
+
+*(i)* $\limsup (-x_n) = -\liminf x_n$ og $\liminf (-x_n) = -\limsup x_n$.
+
+*(ii)* $\liminf x_n \leq \limsup x_n$.
+
+Ennfremur gildir að runan $(x_n)$ er samleitin þá og því aðeins að $\liminf x_n = \limsup x_n$.
+
+## Setning 
+
+Látum $(x_n)$ og $(y_n)$ vera runur í $\overline{\mathbb R}$ sem hafa þann eiginleika að $x_n \leq y_n$ fyrir öll $n$, þá fæst $\liminf x_n \leq \liminf y_n$ og $\limsup x_n \leq \limsup y_n$.
+
+## Setning 
+
+Látum $(x_n)$ og $(y_n)$ vera runur í $\overline{\mathbb R}$, þá gilda ójöfnurnar
+
+$$
+\begin{aligned}
+\liminf x_n + \liminf y_n &\leq \liminf(x_n + y_n) \\
+&\leq \liminf x_n + \limsup y_n \\
+&\leq \limsup(x_n + y_n) \\
+&\leq \limsup x_n + \limsup y_n
+\end{aligned}
+$$
+
+# Nokkur atriði varnandi raðir 
+
+## Setning
+
+Látum $(a_n)_{n\geq 0}$ vera runu í $[0, \infty]$ og látum $\mathcal S$ tákna mengi allra summa af gerðinni $\sum_{n\in I}a_n$ þar sem I er endanlegt hlutmengi í $\mathbb N$. Þá gildir
+
+$$
+\sum_{n=0}^\infty a_n = \sup(\mathcal S)
+$$
+
+## Setning
+
+Látum $\sum_{n=0}^\infty a_n$ vera alsamleitna tvinntalnaröð og $\sigma: \mathbb N \rightarrow \mathbb N$ vera gagntæka vörpum (m.ö.o. **umröðun**). Þá er röðin $\sum_{n=0}^\infty a_{\sigma(n)}$ einnig alsamleiting og
+
+$$
+\sum_{n=0}^\infty a_{\sigma(n)} = \sum_{n=0}^\infty a_n.
+$$
+
+Eftirfarandi setning er einkar áhugaverð í tengslum við setningu 2.1.2, en kemur ekki við sögu í þessu námskeiði.
+
+## Umröðunarsetning Riemanns 
+
+Látum $\sum_{n=0}^\infty a_n$ vera *skilyrt samleitna* rauntalnaröð og $c$ og $d$ vera stök úr $\overline{\mathbb R}$ þannig að $c\leq d$. Þá er til umröðum $\sigma: \mathbb N \rightarrow \mathbb N$, sem hefur þann eiginleika
+
+$$
+\liminf \sum_{k=0}^n a_{\sigma(k)} = 0 \quad \text{og} \quad \limsup \sum_{k=0}^n a_{\sigma(k)} = d.
+$$
+
+Látum I vera óendanlegt teljanlegt mengi og $(a_i)_{i\in I}$ vera fjölskyldu af tvinntölum. Við segjum að **summan** $\sum_{i\in I}a_i$ sé **alsamleitin** ef til er gagntæk vörpun $\sigma: \mathbb N \rightarrow I$, sem hefur þann eiginleika að $\sum_{n=0}^\infty a_{\sigma(n)}$ sé alsamleitin. Sé svo, þá gildir samkvæmt *setningu 2.1.2* að talan  $\sum_{n=0}^\infty a_{\sigma(n)}$ er óháð því hvaða vörpun $\sigma$ er valin. Við setjum þá
+
+$$
+\sum_{i\in I}a_i := \sum_{n=0}^\infty a_{\sigma(n)}
+$$
+
+og köllum **summu** fjölskyldunnar $(a_i)_{i\in I}$
+
+## Æfing 
+
+Látum I vera óendanlegt teljanlegt mengi og $(a_i)_{i\in I}$ vera fjölskyldu af tvinntölum.
+
+*(a)* Gerið grein fyrir að summan $\sum_{i\in I}a_i$ sé alsamleitin þá og því aðeins að til sé rauntala K, sem hefur þann eiginleika að 
+
+$$
+\sum_{i\in F} |a_i| \leq K
+$$
+
+fyrir sérhvert endanlegt hlutmengi F í I.
+
+*(b)* Gerum ráð fyrir að summan $\sum_{i\in I}a_i$ sé alsamleitin og setjum $A:= \sum_{i\in I}a_i$. Sýnið að fyrir sérhvert $\varepsilon > 0$ sé til endanlegt hlutmengi F í I, sem hefur þann eiginleika að 
+
+$$
+|\sum_{i\in J}a_i - A| < \varepsilon
+$$
+
+fyrir sérhvert endanlegt hlutmengi J í I sem inniheldur F.
+
+## Setning
+
+Tvinntalnasumma $\sum_{(m,n)\in \mathbb N^2}a_{m,n}$ er alsamleitin þá og því aðeins að 
+
+$$
+\sum_{m=0}^\infty(\sum_{n=0}^\infty|a_{m,n}|) < \infty,
+$$
+
+og sé svo þá gildir
+
+$$
+\sum_{(m,n)\in\mathbb N^2} a_{m,n} = \sum_{m=0}^\infty(\sum_{n=0}^\infty a_{m,n})  = \sum_{n=0}^\infty(\sum_{m=0}^\infty a_{m,n})
+$$
+
+## Setning 
+
+Fyrir sérhverja fjölskyldu $(a_{m,n})_{(m,n)\in \mathbb N^2}$ í $[0, \infty]$ gildir
+
+$$
+\sum_{(m,n)\in\mathbb N^2}a_{m,n} = \sum_{m=0}^\infty(\sum_{n=0}^\infty a_{m,n})  = \sum_{n=0}^\infty(\sum_{m=0}^\infty a_{m,n})
+$$
+
+
+# Vikublað 1 {-}
+
+### Dæmi 1 {-}
+
+Látum $(x_n)$ vera runu í $\mathbb R$ og M vera rauntölu. Sýnið að rauntalan M sé efra markgildi rununnar ef og aðeins ef hún hefur eftirfarandi eiginleika:
+
+* Fyrir sérhvert $\varepsilon > 0$ gildir að mengið $\{n \in \mathbb N | x_n \geq M + \varepsilon\}$ er endanlegt og mengið $\{n \in \mathbb N | x_n \geq M - \varepsilon\}$ er óendanlegt.
+
+Gerið síðan grein fyrir að neðra mark rununnar uppfylli sambærilegan eiginleika.
+
+### Dæmi 2 {-}
+
+Látum  $(a_n)$ og $(b_n)$ vera runur í $\mathbb R$ og gerum ráð fyrir að runan $(b_n)$ sé samleitin (í $\overline{\mathbb R}$). Gerið grein fyrir hvenær eftirfarandi jöfnur eru uppfylltar í þeim tilfellum þegar báðar hliðar hafa merkingu.
+
+*(a)* $\liminf(a_n + b_n) = \liminf a_n + \lim b_n$ og $\limsup(a_n + b_n) = \limsup a_n + \lim b_n$
+
+*(b)* $\liminf(a_nb_n) = (\liminf a_n)(\lim b_n)$ og $\limsup(a_nb_n) = (\limsup a_n)(\lim b_n)$
+
+### Dæmi 3 {-}
+
+Látun $(x_n)$ vera runu í $\mathbb R$. Sannið eftirfarandi fullyrðingar.
+
+*(a)* Runan $(x_n)$ er ekki takmörkuð að ofan ef og aðeins ef $\limsup x_n = \infty$.
+
+*(b)* Runan $(x_n)$ stefnir á $-\infty$ ef og aðeins ef $\limsup x_n = -\infty$.
+
+*(c)* Runan $(x_n)$ er ekki takmörkuð að neðan ef og aðeins ef $\liminf x_n = -\infty$.
+
+*(d)* Runan $(x_n)$ stefnir á $\infty$ ef og aðeins ef $\liminf x_n = \infty$.
+
+
+### Dæmi 4 {-}
+
+Látum $(c_n)$ vera runu í opna bilinu $(0, \infty)$. Gerið grein fyrir að eftirfarandi ójöfnur gilda.
+
+$$
+\liminf\frac{c_{n+1}}{c_n} \leq \liminf\sqrt[n]{c_n} \quad \text{og} \quad \limsup\sqrt[n]{c_n} \leq \frac{c_{n+1}}{c_n}
+$$
+
+### Dæmi 5 {-}
+
+Látum $(z_n)_{n\geq0}$ vera tvinntalnarunu. Sannið eftirfarandi fullyrðingar.
+
+*(a)* Röðin $\sum_{n=0}^\infty z_n$ er alsamleitin ef $\limsup\sqrt[n]{z_n} < 1$
+
+*(b)* Röðin $\sum_{n=0}^\infty z_n$ er ósamleitin ef $\limsup\sqrt[n]{z_n} > 1$
+
+*(c)* Ef $\limsup\sqrt[n]{|z_n|} = 1$, þá gæti röðin $\sum_{n=0}^\infty z_n$ verið hvort sem er samleitin eða ósamleitin.
+
+### Dæmi 6 {-}
+
+Látum $\sum_{n\geq0} c_nz^n$ vera veldaröð (í tvinntölum) og setjum
+
+$$
+\alpha := \limsup \sqrt[n]{|c_n|}.
+$$
+
+Sannið eftirfarandi fullyrðingar: 
+
+*(a)* Ef $\alpha = 0$, þá er $\infty$ samleitnigeisli raðarinnar.
+
+*(b)* Ef $\alpha > 0$, þá er $\frac1\alpha$ samleitnigeisli raðarinnar.
+
+### Dæmi 7 {-}
+
+Látum $(a_j)_{j\in J}$ vera fjölskyldu í $[0, \infty]$ og $\mathcal S$ tákna mengi allra talna af gerðinni $\sum_{j\in F} a_j$, þar sem F er hlutmengi í J sem hefur aðeins endanlega mörg stök. Setjum svo
+
+$$
+\sum_{j\in J}a_j := \sup(\mathcal S)
+$$
+
+og segjum að fjölskyldan $(a_j)_{j\in J}$ sé **samleggjanleg** ef $\sum_{j\in J} < \infty$.
+
+Sýnið: Ef fjölskyldan er samleggjanleg, þá er teljanlegt hlutmengi I í J, sem hefur þann eiginleika að $a_j = 0$ fyrir öll $j \in J \backslash I$.
+
+
+

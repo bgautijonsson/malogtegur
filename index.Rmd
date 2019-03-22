@@ -1,0 +1,34 @@
+--- 
+title: "Mál- og tegurfræði"
+author: "Brynjólfur Gauti Jónsson"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+link-citations: yes
+description: "Glósur mínar úr áfanganum kenndum í Háskóla Íslands"
+---
+
+
+
+
+
+# Kennsluáætlun {-}
+
+* **Vika 1:** Mengjafræði, aukna rauntalnalínan, raðir.
+
+* **Vika 2:** Jordan-mælanleg mengi, tröppuföll, Riemann-heildi.
+
+* **Vika 3:** Legesbue: Utanmálið, mælanleg mengi og málið.
+
+* **Vika 4:** Málrúm 
+
+* **Vika 5:**
+
+* **Vika 6:** 
+
+* **Vika 7:** Heildanleg föll
+
+* **Vika 8:**
+
+* **Vika 9:**
+

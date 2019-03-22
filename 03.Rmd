@@ -1,0 +1,291 @@
+# Lebesgue-utanmálið 
+
+Fyrir hlutmengi A í $\mathbb R^d$ látum við $Z_A$ tákna mengi allra stærða af gerðinni $\sum_{n=1}^\infty|B_n|$ (í $\overline{\mathbb R}$) þar sem $(B_n)_{n\geq1}$ er runa af d-kössum sem þekja A, þ.e.a.s. $A \subseteq \bigcup_{n\geq1}B_n$.
+
+***
+
+## Skilgreining 
+
+Látum A vera hlutmengi í $\mathbb R^d$. Þá kallast talan
+
+$$
+m^*(A) := \inf Z_A
+$$
+
+**Lebesgue-utanmál** mengisins A.
+
+***
+
+## Setning 
+
+Lebesgue-utanmálið hefur eftirfarandi eiginleika
+
+
+1. $m^*(\emptyset) = 0$.
+
+2. Ef $E\subseteq F \subseteq \mathbb R^d$, þá er $m^*(E) \leq m^*(F)$.
+
+3. Um sérhverja runu $(E_n)_{n\geq1}$ af hlutmengjum í $\mathbb R^d$ gildir
+
+$$
+m^*(\bigcup_{n\geq 1}E_n) \leq \sum_{n=1}^\infty m^*(E_n).
+$$
+
+4. Ytra mál hlutmengis í $\mathbb R^d$ breytist ekki við hliðrun, m.ö.o. gildir um öll hlutmengi E í $\mathbb R^d$ og öll $v$ úr $\mathbb R^d$ að 
+
+$$
+m^*(E + v) = m^*(E).
+$$
+
+***
+
+**Sönnun.**
+
+1. 
+
+2. Augljóst þegar við tökum eftir því að sérhver þakning á $F$ er þakning á $E$.
+
+3. Gerum ráð fyrir að $m_*(E_j) < \infty$ fyrir öll $j$, því annars er niðurstaðan augljós. Fyrir sérhvert $\varepsilon > 0$ gefur skilgreiningin á Lebesgue-utanmálinu okkur fyrir hvert $j$ þakningu $E_j\subset \bigcup_{k=1}^\infty Q_{k,j}$ með lokuðum kössum þannig að
+
+$$
+\sum_{k=1}^\infty |Q_{k,j}| \leq m_*(E_j) + \frac{\varepsilon}{2^j}.
+$$
+
+Þá er $E\subset\bigcup_{j,k=1}^\infty Q_{k,j}$ þakning á $E$ með lokuðum kössum og því
+
+$$
+\begin{aligned}
+m_*(E) \leq \sum_{j,k}|Q_{k,j}| &= \sum_{j=1}^\infty\sum_{k=1}^\infty |Q_{k,j}| \\
+&\leq \sum_{j=1}^\infty
+(m_*(E_j) + \frac{\varepsilon}{2^j} \\
+&= \sum_{j=1}^\infty m_*(E) + \varepsilon.
+\end{aligned}
+$$
+
+Þar sem ofangreint stens fyrir sérhvert $\varepsilon > 0$ er staðhæfingin sönnuð.
+
+***
+
+### Setning
+
+Látum E og F vera hlutmengi í $\mathbb R^d$, sem uppfylla $d(E, F) > 0$. Þá gildir
+
+$$
+m^*(E\cup F) = m^*(E) + m^*(F).
+$$
+
+***
+
+## Setning 
+
+Látum E vera kassastæðu í $\mathbb R^d$. Þá er Lebesgue-utanmálið á E jafn Jordan-málinu á E, með öðrum orðum $m^*(E) = m(E)$.
+
+***
+
+Látum $(B_i)_{i\in I}$ vera fjölskyldu af $d$-kössum, Við segjum að kassarnir í fjölskyldunni séu **næstum innbyrðis sundurlægir** ef $\text{int}(B_i)\cap\text{int}(B_j) = \emptyset$ þegar $i \neq j$.
+
+***
+
+## Setning
+
+Látum $(B_n)_{n\in\mathbb N}$ vera runu af næstum innbyrðis sundurlægum $d$-kössum. Þá gildir
+
+$$
+m^*(\bigcup_{n=0}^\infty B_n) = \sum_{n=0}^\infty|B_n|.
+$$
+
+***
+
+## Setning 
+
+Sérhvert opið mengi í $\mathbb R^d$ er unnt að skrifa sem sammengi af teljanlega mörgum næstum innbyrðis sundurlægum kössum.
+
+***
+
+## Setning
+
+Látum E vera hlutmengi í $\mathbb R^d$ og $\mathcal U$ vera mengi allra stærða af gerðinni $m^*(U)$ í $\overline{\mathbb R}$ þar sem U er opið mengi í $\mathbb R^d$, sem inniheldur E. Þá gildir
+
+$$
+m^*(E) = \inf(\mathcal U)
+$$
+
+# Lebesgue-mælanleg mengi og Lebesgue-málið
+
+## Skilgreining
+
+Látum E vera hlutmengi í $\mathbb R^d$.
+
+*(i)* Við segjum að E sé **Lebesgue-mælanlegt** ef, fyrir sérhvert $\varepsilon > 0$, er til opið mengi U í $\mathbb R^d$ sem uppfyllir skilyrðin
+
+$$
+E\subseteq U \quad \text{og} \quad m^*(U\backslash E) \leq \varepsilon
+$$
+
+*(ii)* Ef E er Lebesgue-mælanlegt, þá segjum við að stærðin $m(E) := m^*(E)$ (í $\overline{\mathbb R}$) sé **Lebesgue-mál** mengisins E.
+
+***
+
+## Setning
+
+Sérhvert Jordan-mælanlegt mengi í $\mathbb R^d$ er Lebesgue-mælanlegt og Jordan-mál þess er jafnt Lebesgue-máli þess.
+
+***
+
+## Setning
+
+*(i)* Öll opin mengi í $\mathbb R^d$ eru Lebesgue-mælanleg.
+
+*(ii)* Öll mengi í $\mathbb R^d$, sem hafa Lebesgue-utanmál núll, eru Lebesgue-mælanleg.
+
+*(iii)* Ef $(E_n)_{n\geq 1}$ er runa af Lebesgue-mælanlegum mengjum í $\mathbb R^d$, þá er sammengið $\bigcup_{n=1}^\infty E_n$ einnig Lebesgue-mælanlegt.
+
+*(iv)* Fyllimengi sérhvers Lebesgue-mælanlegs mengis í $\mathbb R^d$ er Lebesgue-mælanlegt.
+
+*(v)* Ef $(E_n)_{n\geq1}$ er runa af Lebesgue-mælanlegum mengjum í $\mathbb R^d$, þá er sniðmengið $\bigcap_{n=1}^\infty E_n$ einnig Lebesgue-mælanlegt.
+
+
+
+## Setning
+
+Látum $(E_n)_{n\geq1}$ vera runu af *innbyrðis sundurlægum* Lebesgue-mælanlegum mengjum í $\mathbb R^d$. Þá gildir
+
+$$
+m(\bigcup_{n=1}^\infty E_n) = \sum_{n=1}^\infty m(E_n).
+$$
+
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Vikublað 3 {-}
+
+## Dæmi 1 {-}
+
+Látum I vera óendanlegt teljanlegt mengi og $(a_i)_{i\in I}$ vera fjölskyldu af tvinntölum.
+
+*(a)* Gerið grein fyrir að summan $\sum_{i\in I} a_i$ sé alsamleitin þá og því aðeins að til sé rauntala K, sem hefur þann eiginleika að 
+
+$$
+\sum_{i\in F}|a_i| \leq K
+$$
+
+fyrir sérhvert endanlegt hlutmengi $F$ í $I$.
+
+**Lausn.** *Gerum ráð fyrir að til sé slíkt $K$ og sýnum að summan er alsamleitin*. Þar sem að $I$ er teljanlega óendanlegt er til gagntækt fall $\sigma: \mathbb N \rightarrow I$. Þá fæst fyrir sérhvert $n\in\mathbb N$ að
+
+$$
+\sum_{k=0}^n|a_{\sigma(k)}|\leq K.
+$$
+
+Samkvæmt forsendu er markgildið $n\rightarrow\infty$ til svo hlutsummurunan hefur markgildi. Þar með er runan alsamleitin.
+
+*Gerum nú ráð fyrir að summan sé alsamleitin og sýnum að til sé slíkt $K$*. Aftur er til gagntækt fall $\sigma:\mathbb N\rightarrow I$. Þar sem runan er alsamleitin setjum við
+
+$$
+K:=\sum_{k=0}^\infty|a_{\sigma(k)}|.
+$$
+
+Þar sem $\sigma$ er gagntæk er þá
+
+$$
+\sum_{i\in F}|a_i| = K - \sum_{i\in I\backslash F}|a_i|\leq K
+$$
+
+***
+
+*(b)* Gerum ráð fyrir að summan $\sum_{i\in I} a_i$ sé alsamleitin og setjum $A := \sum_{i\in I} a_i$. Sýnið að fyrir sérhvert $\varepsilon > 0$ sé til endanlegt hlutmengi $F$ í $I$, sem hefur þann eiginleika að
+
+$$
+\left|\sum_{i\in J}a_j - A \right| < \varepsilon
+$$
+
+fyrir sérhvert endanlegt hlutmengi $F$ í $I$.
+
+**Lausn.** Eins og í fyrri til er til gagntækt fall $\sigma:\mathbb N\rightarrow I$. Þar sem röðin er alsamleitin er hún sér í lagi skilorðslaust samleitin þannig að $\sum_{i\in I}a_i = \sum_{k\in\mathbb N}a_{\sigma(k)}$ fyrir öll skík $\sigma$. Þá er til $n\in\mathbb N$ þannig að
+
+$$
+\left|A - \sum_{k=0}^N a_{\sigma(k)} \right| < \varepsilon
+$$
+
+fyrir öll $N\geq n$. En þá er einmitt $\sigma(\{1, \dots, n \})$ slíkt hlutmengi.
+
+***
+
+## Dæmi 2 {-}
+
+Látum $E$ og $F$ vera Jordan-mælanleg hlutmengi hlutmengi í $\mathbb R^d$. Gerið grein fyrir að $E\Delta F$ sé líka Jordan-mælanlegt.
+
+***
+
+## Dæmi 3 {-}
+
+Látum $E$ vera takmarkað mengi í $\mathbb R^d$ og látum samkvæmt venju $\overline E$ tákna lokun þess og $\text{int}(E)$ tákna innmengi þess.
+
+*(a)* Gerið grein fyrir að mengin $\overline E$ og $E$ hafi sama Jordan-utanmál.
+
+*(b)* Gerið grein fyrir að mengin $\text{int}(E)$ og $E$ hafi sama Jordan-innanmál.
+
+*(c)* Ályktið út frá *(a)* og *(b)* að E sé mælanlegt þá og því aðeins að jaðar þess, $\partial E$, hafi Jordan-utanmál núll.
+
+*(d)* Finnið dæmi um takmarkað hlutmengi í $\mathbb R^d$ sem er ekki Jordan-mælanlegt.
+
+***
+
+## Dæmi 4 {-}
+
+Gerið fyrst grein fyrir að til séu runur $(a_n)_{n\geq 1}$ og $(b_n)_{n\geq1}$ í lokaða bilinu $[0,1]$, sem uppfylla skilyrðin
+
+$$
+\mathbb Q \cap (0, 1) \subseteq \bigcup_{n\geq1}(a_n, b_n) \quad \text{og} \quad \sum_{n\geq1}(b_n-a_n)<1
+$$
+
+og setjið svo $U := \bigcup_{n\geq1}(a_n,b_n)$. Sannið síðan eftirfarandi fullyrðingar.
+
+*(a)* Mengið $[0,1]\backslash U$ er jaðar mengisins U (í $\mathbb R$).
+
+*(b)* Mengið U er ekki Jordan-mælanlegt.
+
+***
+
+## Dæmi 5 {-}
+
+Látum $C$ vera takmarkað hlutmengi í $\mathbb R^d$. Gerið grein fyrir að kennifallið $\mathbf 1_C$ sé Riemann-heildanlegt þá og því aðeins að mengið $C$ sé Jordan-mælanlegt.
+
+***
+
+## Dæmi 6 {-}
+
+Látum $f$ vera fall á $d$-kassa R og $R = B_1\cup\dots\cup B_k$ vera skiptingu. Sýnið fram á að fallið $f$ sé Riemann-heildanlegt þá og því aðeins að einskorðun $f$ við $B_i$ sé Riemann-heildanleg fyrir öll $i$ úr $\{1, \dots, k\}$. Sýnið ennfremur fram á að í því tilfelli gildi
+
+$$
+\int_R f = \sum_{i=1}^k\int_{B_i}f_i
+$$
+
+þar sem $f_i$ táknar einskorðun fallsins $f$ við $B_i$.
+
+***
+
+## Dæmi 7 {-}
+
+Látum $C$ vera takmarkað hlutmengi í $\mathbb R^d$, $f$ og $g$ vera Riemann-heildanleg föll á $C$ og $a$ vera rauntölu. Sannið eftirfarandi fullyrðingar:
+
+*(a)* Fallið $af + g$ er heildanlegt og 
+$$
+\int_C(af + g) = a\int_Cf + \int_C g.
+$$
+
+*(b)* Fallið $fg$ er heildanlegt.
+
+
+
